@@ -17,15 +17,16 @@ body{
 }
 body
 {
+    left:0px;right:0px;
 	background-image: url("../images/lghtmesh.png");
 	font-family: 'Bangers', cursive;
 	overflow-x:hidden!important;
-	min-height:100%; padding:0; margin:0;
+	min-height:100%; padding:0 !important; margin:0 !important;
 }
 #force
 {
 	position: absolute;
-	padding: 0px;
+	padding: 0px !important;
     margin: 0px !important;
     min-width: 1325px;
     display: block;
@@ -226,12 +227,13 @@ text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 #menuItemHolder {
 	position: absolute;
-	width: 710px;
+	width: 700px;
 	margin: 0px;
 	padding: 0px;
 	left: 50%;
 	top: 0%;
-	transform: translate(-50%,-0%);
+	margin-left: -350px;
+	/*transform: translate(-50%,-0%);*/
 }
 #menuItemHolder a {
 	text-decoration: none;
