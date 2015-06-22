@@ -1,0 +1,138 @@
+
+
+#cover{
+	background-image: url("../images/about/charlottetwo.jpg");
+	margin: 0px;
+	padding: 0px;
+	height: 200px !important;
+	background-position: 28% 35%;
+	overflow: hidden;
+	box-shadow: none !important;
+	z-index: -1;
+	margin-bottom: 0px;
+}
+.header
+{
+	width: 100%;
+	height: auto;
+	font-size: 35px;
+	color:#3F4559;
+	font-family: 'Bangers', cursive;
+}
+.imgOverlay {
+  position: relative;
+  float: left;
+  /*border: thin silver solid; */
+  margin: 0.4em;
+  padding: 0.3em;
+  cursor: pointer;  
+  box-shadow: rgba(0,0,0,.2) 3px 5px 5px;
+  background-color: white;
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+}
+
+.imgOverlay:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: none;
+   transition: all .3s linear;
+}
+
+.imgOverlay:hover:before {   background: rgba(255,255,255, 0.8); }
+
+
+.overlayText
+{
+  	position:absolute;
+	width: 100%;
+	height: auto; 
+	top:50%;
+ 	transform: translate(-0%,-50%);
+	text-align: center;
+	color: white;
+	display: none;
+
+}
+
+
+.small
+{
+	width: 160px;
+	height: 120px;
+}
+.big
+{
+	position: absolute;
+	float: right;
+	width: 50%;
+	top: 0px;
+	overflow: hidden;
+	max-height: 100%;
+	margin-right: 20px;
+	padding: 0px;
+	display: inline-block;
+}
+
+
+.imgTint
+{
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	background-color: rgba(50,45,51,0.9);
+	display: none;
+	z-index: 50000;
+	color: white;
+	font-size: 30px;
+}
+.imgTint span
+{
+	position: absolute;
+	top: 90%;
+    left: 50%;
+    margin-right: -50%;
+    max-height: 60%;
+    max-width: 100%;
+    transform: translate(-50%, -90%);	
+    display: inline-block;
+}
+.imgTint img
+{
+	position: absolute;
+	top: 40%;
+    left: 50%;
+    margin-right: -50%;
+    max-height: 60%;
+    max-width: 100%;
+    transform: translate(-50%, -40%);
+    float: left;
+}
+
+
+
+.blockElement
+{
+	display: inline-block;
+	width: 100%;
+	height: auto;
+	float: left;
+	left: 0px;
+	margin-top: 20px;
+}
+
+.imageText
+{
+		overflow: hidden;
+	max-height: 100%;
+	margin-right: 20px;
+	margin-bottom: 5px;
+	padding: 0px;
+}

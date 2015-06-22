@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block js %}
+	<script src="{{ url_for('static', filename='js/art.js') }}"></script>
+{% endblock%}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/art.css') }}" media="screen" />
+{% endblock%}
+
+{% block content %}
+<div id="centerContainer" class="centerContainerEdit">
+	<a href="{{ url_for('Layouts') }}">
+		<div class="block">
+			<span class="heading">
+				Layout Design
+			</span>
+			<div class="circle"></div>
+			<span class="description">
+			Phasellus ac felis sed sapien vehicula egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+			</span>
+		</div>
+	</a>
+	<a href="{{ url_for('Graphics') }}">
+		<div class="block">
+			<span class="heading">
+				Info Graphics
+			</span>
+			<div class="circle"></div>
+			<span class="description">
+			Duis interdum velit id viverra imperdiet. Phasellus quis interdum ante, quis elementum elit.
+			</span>
+		</div>
+	</a>
+	<a href="{{ url_for('Logos') }}">
+		<div class="block">
+			<span class="heading">
+				Logo Design
+			</span>
+			<div class="circle"></div>
+			<span class="description">
+			Donec aliquam odio id eros scelerisque semper. 
+			</span>
+		</div>
+	</a>
+	<a href="{{ url_for('Drawings') }}">
+		<div class="block">
+			<span class="heading">
+				Drawing
+			</span>
+			<div class="circle"></div>
+			<span class="description">
+			Etiam pellentesque massa ut lorem ornare faucibus non sed enim. 
+			</span>
+		</div>
+	</a>
+</div>
+   
+{% endblock %}

@@ -1,0 +1,233 @@
+{% extends "base.html" %}
+
+
+
+{% block js %}<script src="{{ url_for('static', filename='js/about.js') }}"></script>
+{% endblock%}
+
+
+{% block css %}<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/about.css') }}" media="screen" />
+{% endblock %}
+
+
+
+{% block content %}
+		<div id="centerContainer">
+			<div class="block" style="margin-bottom: 0px;">
+				<div title="Edit About Page" class="openEditPane" id="editAbout"></div>
+			</div>
+			<div class="block" id="cover"></div>
+			<div class="block blockAttributes">
+				<span class="header">About Me</span><br/><br/>
+				{{ descMe[0].description }}
+			</div>
+			<div class="block blockAttributes" style="padding-left: 50px;">
+				{% for img in imagesLikes %}
+				<figure id="{{ img.idName }}" class="imgOverlay">
+					<span class="overlayText">{{img.description}}</span>	
+					<img class="small" src="../static/images/about/{{img.path}}"/>
+				</figure>
+				{% endfor %}
+			</div>
+			<div class="smallblock blockAttributes">
+				<div class="header">Facts</div>
+				<ul>
+				{% for fact in facts %}
+					<li>{{fact.description}}</li>
+				{% endfor %}
+				</ul>
+			</div>
+			<div class="smallblock blockAttributes" style="float:right">
+				<div class="header">Likes</div>
+				<ul>
+				{% for like in likes %}
+					<li>{{like.description}}</li>
+				{% endfor %}
+				</ul>
+			</div>
+			<div class="block blockAttributes">
+				<div class="header">I Love to travel</div>
+				 <div class="blockElement">{{ descTravel[0].description }}</div>
+				 <div class="blockElement">
+					{% for img in imagesTravel %}
+					<figure id="{{ img.idName }}" class="imgOverlay">
+						<span class="overlayText">{{img.description}}</span>	
+						<img class="small" src="../static/images/about/{{img.path}}"/>
+					</figure>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="block blockAttributes">
+				<div class="header">I Love Fashion</div>
+				<div class="blockElement">{{ descFashion[0].description }}</div>
+			 	<div class="blockElement">
+					{% for img in imagesFashion %}
+					<figure id="{{ img.idName }}" class="imgOverlay">
+						<span class="overlayText">{{img.description}}</span>	
+						<img class="small" src="../static/images/about/{{img.path}}"/>
+					</figure>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="block blockAttributes">
+				<div class="header">I Love Drawing</div>
+				<div class="blockElement">{{ descDrawing[0].description }}</div>
+				<div class="blockElement">
+					{% for img in imagesDrawing %}
+					<figure id="{{ img.idName }}" class="imgOverlay">
+						<span class="overlayText">{{img.description}}</span>	
+						<img class="small" src="../static/images/about/{{img.path}}"/>
+					</figure>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+
+		{% for photo in photos %}
+			<div id="tinted_{{photo.idName}}" class="imgTint">
+				<img  class="imageText" style="float:left;" src="../static/images/about/{{ photo.path }}"/>
+				<span>{{photo.description}}</span>
+			</div>
+		{% endfor %}
+
+		<!-- popup edit pane for editing an image  -->
+		<!-- load edit pane with photo data -->
+		<div class="editPaneOverlay" id="editAboutOverlay">
+			<div class="editPane">
+				<div class="closeEditPane" id="editAboutOverlay">Close</div>
+				<div class="editPaneBlock">
+					<span class="editPaneHeader">New Photo</span>
+					<table>
+						<tr>
+							<td>IDName</td>
+							<td>Description</td>
+							<td>Type</td>
+							<td>Photo</td>
+							<td>Insert Photo</td>
+						</tr>
+						<tr>
+							<form  enctype="multipart/form-data" action="{{ url_for("newAboutPhoto") }}" method="post" autocomplete="off">
+								<td><input placeholder="new" name="idName" size="10" type="textarea"/></td>
+								<td><input placeholder="new" name="description" size="50" type="textarea"/></td>
+								<td>
+									<select name="imageType">
+										<option value="about">about</option>
+										<option value="fashion">fashion</option>
+										<option value="drawing">drawing</option>
+										<option value="travel">travel</option>
+									</select>
+								</td>
+								<td><input placeholder="new" type="file" name="file" accept="image/*"/></td>
+								<td><input placeholder="new" type="submit" value="Create New"/></td>
+							</form>
+						</tr>
+					</table>
+				</div>
+				<div class="editPaneBlock">
+					<span class="editPaneHeader">Edit Photos</span>
+					<table>
+						<tr>
+							<td>IDName</td>
+							<td>Description</td>
+							<td>Type</td>
+							<td>Edit</td>
+							<td>Delete</td>
+						</tr>
+						{% for photo in photos %}
+						<tr>
+							<form  enctype="multipart/form-data"  action="{{ url_for("editAboutPhoto") }}" method="post" autocomplete="off">
+								<input name="imageID" type="hidden" value="{{ photo.imageID }}"/>
+								<td><input name="idName" size="10" type="textarea" placeholder="{{ photo.idName }}"/></td>
+								<td><input name="description" size="50" type="textarea" placeholder="{{ photo.description}}"/></td>
+								<td>
+									<select name="imageType">
+										<option value="Layouts">{{ photo.imageType }}</option>
+										<option value="about">about</option>
+										<option value="fashion">fashion</option>
+										<option value="drawing">drawing</option>
+										<option value="travel">travel</option>
+									</select>
+								</td>
+								<td><input type="submit" value="Edit"></td>
+							</form>
+							<form method="post" action="{{ url_for("deleteAboutPhoto") }}">
+								<td>
+									<input name="imageId" type="hidden" value="{{ photo.imageID }}"/>
+									<input type="submit" value="Delete"/>
+								</td>
+							</form>
+						</tr>
+						{% endfor %}
+					</table>
+				</div>
+				<div class="editPaneBlock">
+					<span class="editPaneHeader">New Description</span>
+					<table>
+						<tr>
+							<td>descID</td>
+							<td>Description</td>
+							<td>descType</td>
+							<td>New</td>
+						</tr>
+						<tr>
+							<form  enctype="multipart/form-data"  action="{{ url_for("newAboutDescription") }}" method="post" autocomplete="off">
+								<td><input name="idName" size="10" type="textarea"/></td>
+								<td><input name="description" size="50" type="textarea"/></td>
+								<td>
+									<select name="descType">
+										<option value="me">me</option>
+										<option value="like">like</option>
+										<option value="drawing">drawing</option>
+										<option value="travel">travel</option>
+										<option value="fashion">fashion</option>
+									</select>
+								</td>
+								<td><input type="submit" value="New"></td>
+							</form>
+						
+						</tr>
+					</table>
+				</div>
+				<div class="editPaneBlock">
+					<span class="editPaneHeader">Edit Description</span>
+					<table>
+						<tr>
+							<td>descID</td>
+							<td>Description</td>
+							<td>descType</td>
+							<td>Edit</td>
+							<td>Delete</td>
+						</tr>
+						{% for desc in descriptions %}
+						<tr>
+							<form  enctype="multipart/form-data"  action="{{ url_for("editAboutDescription") }}" method="post" autocomplete="off">
+								<input name="descID" type="hidden" value="{{ desc.descID }}"/>
+								<td><input name="idName" size="10" type="textarea" placeholder="{{ desc.idName }}"/></td>
+								<td><input name="description" size="50" type="textarea" placeholder="{{ desc.description}}"/></td>
+								<td>
+									<select name="descType">
+										<option value="default">{{ desc.descType }}</option>
+										<option value="me">me</option>
+										<option value="like">like</option>
+										<option value="drawing">drawing</option>
+										<option value="travel">travel</option>
+										<option value="fashion">fashion</option>
+									</select>
+								</td>
+								<td><input type="submit" value="Edit"></td>
+							</form>
+							<form method="post" action="{{ url_for("deleteAboutDescription") }}">
+								<td>
+									<input name="descID" type="hidden" value="{{ desc.descID }}"/>
+									<input type="submit" value="Delete"/>
+								</td>
+							</form>
+						</tr>
+						{% endfor %}
+					</table>
+				</div>
+			</div>
+		</div>
+{% endblock %}
+
+

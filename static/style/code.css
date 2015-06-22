@@ -1,0 +1,250 @@
+table, tr, td
+{
+	font-size: 17px;
+	color: #4A414A;
+	padding: 5px;
+	padding-right: 15px;
+}
+td:nth-child(2) 
+{
+	padding-left: 0px;
+}
+.font{
+	font-family: 'Roboto Condensed', sans-serif;
+}
+.blockAttributesEdit{
+	top: 20px;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+#bodyMenu
+{
+	position: absolute;
+	width: 850px;
+	height: 40px;
+	top: 300px;
+	font-family: 'Roboto Condensed', sans-serif;
+	left: 50%;
+	margin-left: -425px;
+	z-index: -1;
+}
+#centerContainer{
+	z-index: 10 !important;
+}
+#header
+{
+	position: absolute;
+	overflow: hidden;
+	width: 850px;
+	height: 250px;
+	padding-bottom: 50px;
+	padding-top: 20px;
+	z-index: 2;
+	background-color: rgba(255,255,255,1);
+	border: 1px solid #B4B8D4 ;
+	left: 50%;
+	margin-left: -425px;
+	box-shadow: rgba(0,0,0,.2) 3px 5px 5px;
+	font-family: 'Roboto Condensed', sans-serif;
+	z-index: -1;
+		display: block;
+}
+#headerImg
+{
+	position: absolute;
+	border: 2px solid #C8E3DD;
+	width: 250px;
+	height: 180px;
+	display:block; 
+}
+.headerInfo
+{
+	position: absolute;
+	top: 30px;
+	height: 180px;
+	width: 150px;
+	border-right: 1px solid #D1D3E3;
+	float: left;
+	display: block;
+}
+.headerInfo img
+{
+	height: 30px;
+	width: 30px;
+	border: 0px;
+	display: block;
+	float: left;
+}
+
+
+.bar
+{
+	background-color: #358581;
+	height: 25px;
+	width: 30px;
+	line-height: 25px;
+	float: left;
+	color: white;
+	text-align: center;
+	font-size: 15px;
+}
+.bar_second
+{
+	background-color: #546FA8;
+	border-radius: 4px;
+	width: 110px;
+	height: 25px;
+	line-height: 25px;
+	color: white;
+	float: left;
+	margin: 15px;
+	text-align: center;
+}
+.heading
+{
+	color: #25262E;
+/*	border-bottom: 1px dotted #A7ABC4;	*/
+	font-size: 20px;
+	font-weight: bold;
+}
+.link
+{
+	position: absolute;
+	padding-left: 10px;
+	padding-top: 0px;
+	left: 30px;
+	color: #4E5480;
+	font-size: 20px;
+}
+.section
+{
+	position: relative;
+	height: auto;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	width: 100%;
+	border-bottom: 1px solid #DDCEDE;
+}
+.section_text
+{
+	font-size: 15px;
+	color: #4A414A;
+}
+.description
+{
+	color: grey;
+	padding: 10px;
+	padding-left: 0px;
+}
+.sub_heading
+{
+	color: #484A5C;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+
+#cssmenu {
+
+  width: 80%;
+  border-bottom: 1px solid #B4B8D4;
+  line-height: 1;
+}
+#cssmenu > ul > li > a,
+#cssmenu > ul > li {
+  float: left;  
+}
+
+#cssmenu.align-center > ul {
+  font-size: 0;
+  text-align: center;
+}
+#cssmenu.align-center > ul > li {
+  display: inline-block;
+  float: none;
+
+}
+#cssmenu.align-right > ul > li {
+  float: right;
+}
+#cssmenu.align-right > ul > li > a {
+  margin-right: 0;
+  margin-left: -4px;
+}
+#cssmenu > ul > li > a {
+  z-index: 2;
+  padding: 18px 25px 14px 25px;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #898EAD;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  margin-right: -4px;
+
+
+}
+#cssmenu > ul > li.active > a,
+#cssmenu > ul > li:hover > a,
+#cssmenu > ul > li > a:hover {
+  color: black;
+}
+
+#cssmenu > ul > li > a:after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  width: 100%;
+  height: 120%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  content: "";
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  -webkit-transform: perspective(5px) rotateX(2deg);
+  -webkit-transform-origin: bottom;
+  -moz-transform: perspective(5px) rotateX(2deg);
+  -moz-transform-origin: bottom;
+  transform: perspective(5px) rotateX(2deg);
+  transform-origin: bottom;
+}
+
+#cssmenu > ul > li.active > a:after,
+#cssmenu > ul > li:hover > a:after,
+#cssmenu > ul > li > a:hover:after {
+  background-color: #B4B8D4;
+}
+
+
+
+	

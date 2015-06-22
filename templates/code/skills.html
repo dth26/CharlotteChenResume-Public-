@@ -1,0 +1,93 @@
+<div class="section">
+	<span class="heading">Skills</span><br/>
+	<table>
+	  <tr>
+	    <td><div class="bar"></div></td>
+	    <td><span class="section_text"> is 1 year</span></td>
+	  </tr>
+	 </table> 
+	 <br/>
+	<span class="sub_heading">Main Skills</span><br/>
+	 <table>
+	  {% for skill in skills %}
+	  	{% if skill.order != 0 %}
+	  		<tr>
+			    <td style="border-right: 2px solid #305C5A">{{ skill.skill }}</td>
+			    <td >
+				    {% for bar in range(skill.years) %}
+				    	<div class="bar">
+				    		{% if loop.index == skill.years %}
+				    			{{ skill.years }}
+				    		{% endif %}
+				    	</div>
+				    {% endfor %}
+			    </td>
+			</tr>
+	  	{% endif %}
+	  {% endfor %}
+
+	</table>
+	<br/>
+
+	<span class="sub_heading">Knowledge Of...</span><br/>
+	{% for skill in skills %}
+		{% if skill.order == 0 %}
+			<div class="bar_second">{{ skill.skill }}</div>
+		{% endif %}
+	{% endfor %}
+	<br/><br/><br/><br/><br/>
+
+	<div title="Edit Skills" class="openEditPane" id="editSkill"></div>
+</div>
+
+
+<!-- create edit pane for modifying companies -->
+<div class="editPaneOverlay" id="editSkillOverlay">
+	<div class="editPane">
+		<div class="closeEditPane" id="editSkillOverlay">Close</div>
+		<div class="editPaneBlock">
+			<div class="editPaneHeader">New Skill</div>
+			<table>
+				<tr>
+					<td>Skill</td>
+					<td>Years of Exp</td>
+					<td>Insert Skill</td>
+				</tr>
+				<tr>
+					<form enctype="multipart/form-data"  action="{{ url_for("insertData") }}" method="post" autocomplete="off">
+					<td><input type="textarea" name="skill" placeholder="New"/></td>
+					<td><input type="textarea" name="years" placeholder="New"/></td>
+					<td><input type="submit" name="section" value="Insert Skill"/></td>
+					</form>
+				</tr>
+			</table>
+		</div>
+		<div class="editPaneBlock">
+			<div class="editPaneHeader">Edit Skill</div>
+			<table>
+				<tr>
+					<td>Skill</td>
+					<td>Years of Exp</td>
+					<td>Edit Skill</td>
+					<td>Delete Skill</td>
+				</tr>
+				{% for skill in skills %}
+				<tr>
+					<form  enctype="multipart/form-data"  action="{{ url_for("editSkill") }}" method="post" autocomplete="off">
+					<input type="hidden" name="dataID" value="{{skill.skillID}}" />
+					<td><input type="textarea" name="skill" value="{{skill.skill}}"/></td>
+					<td><input type="textarea" name="years" placeholder="{{skill.years}}"/></td>
+					<td><input type="submit" name="section" value="Edit Skill"/></td>
+					</form>
+					<form  enctype="multipart/form-data"  action="{{ url_for("deleteData") }}" method="post" autocomplete="off">
+					<input type="hidden" name="dataID" value="{{ skill.skillID }}"/>
+					<td><input type="submit" name="section" value="Delete Skill"/></td>
+					</form>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+		
+
+	</div>
+</div>

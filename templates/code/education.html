@@ -1,0 +1,88 @@
+<div style="padding-top:20px;" class="section">
+	<span class="heading">Education</span><br/><br/>
+	{% for school in schools %}
+	<span class="sub_heading">{{ school.school}}, (
+	{{school.startDate}}-{{school.endDate}}) , {{ school.year}}</span>
+	<span class="section_text"></span><br/>
+    <span class="section_text">
+	    <ul>
+	    	{% for major in majors %}
+	    		{% if major.schoolID == school.schoolID %}
+	    		<li>
+	    			<span>{{ major.degree }} of {{ major.major }}</span>
+	    		</li>
+	    		{% endif %}
+	    	{% endfor %}
+	    </ul>
+    </span>
+    {% endfor %}
+
+    <div title="Edit Education" class="openEditPane" id="editEducation"></div>
+</div>
+
+
+
+<!-- popup edit pane for editing education/schools  -->
+<!-- load edit pane with photo data -->
+<div class="editPaneOverlay" id="editEducationOverlay">
+	<div class="editPane">
+		<div class="closeEditPane" id="editEducationOverlay">Close</div>
+		<div class="editPaneBlock">
+			<div class="editPaneHeader">New School</div>
+			<table>
+				<tr>
+					<td>School</td>
+					<td>Start</td>
+					<td>End</td>
+					<td>Year</td>
+					<td>Insert School</td>
+				</tr>
+				<tr>
+					<form  enctype="multipart/form-data"  action="{{ url_for("insertData") }}" method="post" autocomplete="off">
+					<td><input type="textarea" name="school" placeholder="New"/></td>
+					<td><input type="textarea" name="start" placeholder="New"/></td>
+					<td><input type="textarea" name="end" placeholder="New"/></td>
+					<td>
+						<select name="year">
+							<option value="Senior">Senior</option>
+						</select>
+					</td>
+					<td><input type="submit" name="section" value="Insert School"/></td>
+					</form>
+				</tr>
+			</table>
+		</div>
+		<div class="editPaneBlock">
+			<div class="editPaneHeader">Edit School</div>
+			<table>
+				<tr>
+					<td>School</td>
+					<td>Start</td>
+					<td>End</td>
+					<td>Year</td>
+					<td>Edit School</td>
+				</tr>
+				{% for school in schools %}
+				<tr>
+					<form  enctype="multipart/form-data"  action="{{ url_for("editSchool") }}" method="post" autocomplete="off">
+						<input type="hidden" name="dataID" value="{{ school.schoolID }}"/>
+						<td><input type="textarea" name="school" value="{{ school.school }}"/></td>
+						<td><input type="textarea" name="start" placeholder="{{ school.startDate }}"/></td>
+						<td><input type="textarea" name="end" placeholder="{{ school.endDate }}"/></td>
+						<td>
+							<select name="year">
+								<option value="Senior">Senior</option>
+							</select>
+						</td>
+						<td width="350"><input type="submit" value="Edit School"/></td>
+					</form>
+					<form  enctype="multipart/form-data"  action="{{ url_for("deleteData") }}" method="post" autocomplete="off">
+						<input type="hidden" name="dataID" value="{{ school.schoolID }}"/>
+						<td><input type="submit" name="section" value="Delete School"/></td>
+					</form>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>

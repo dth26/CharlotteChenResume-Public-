@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+
+{% block js %}<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock%}
+
+
+{% block css %}<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/index.css') }}" media="screen" />
+{% endblock %}
+
+{% block content %}
+	<ul id="textBlock">
+		<li><div id="meet">Meet</div></li>
+		<li><div id="charlotte">Charlotte Chen,</div></li>
+		<li><div id="description">I'm currently a senior computer science and economics major at the University of Pittsburgh. My career focus is a balance of Art and Coding.</div></li>
+	</ul>
+	<!--
+	<div id="imageBlock">
+		<img id="image" src="../static/images/c.png"/>
+	</div>
+	-->
+	<img id="image" src="../static/images/c.png"/>
+{% endblock %}

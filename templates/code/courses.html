@@ -1,0 +1,82 @@
+
+<div class="section">
+	<span class="heading">Courses</span><br/><br/>
+	{% for major in majors%}
+		<span class="sub_heading">{{ major.major }}</span><br/>
+		<span class="section_text">
+			<ul>
+				{% for course in courses %}
+					{% if course.majorID == major.majorID %}
+						<li>{{ course.course }}</li>
+						{% if subpage == "courses" and course.description != "" %}
+							<ul style="list-style-type: none;">
+								<li><span class="description">{{ course.description }} </span></li>
+							</ul>
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</span>
+		<br/>
+	{% endfor %}
+	<div title="Edit Courses" class="openEditPane" id="editCourse"></div>
+</div>
+
+
+<!-- popup edit pane for editing Courses  -->
+<!-- load edit pane with photo data -->
+<div class="editPaneOverlay" id="editCourseOverlay">
+	<div class="editPane">
+		<div class="closeEditPane" id="editCourseOverlay">Close</div>
+		<div class="editPaneBlock">
+			<div class="editPaneHeader">New Course</div>
+			<table>
+				<tr>
+					<td>Course</td>
+					<td>Description</td>
+					<td>Major</td>
+					<td>Insert New Course</td>
+				</tr>
+				<tr>
+					<form  enctype="multipart/form-data"  action="{{ url_for("insertData") }}" method="post" autocomplete="off">
+					<td><input type="textarea" name="course" placeholder="New"/></td>
+					<td ><textarea rows="5" cols="55" name="description"></textarea></td>
+					<td>
+						<select name="major">
+						{% for major in majors %}
+							<option value="{{ major.majorID }}">{{ major.major }}</option>
+						{% endfor %}
+						</select>
+					</td>
+					<td><input type="submit" name="section" value="Insert Course"/></td>
+					</form>
+				</tr>
+			</table>
+		</div>
+		<div class="editPaneBlock">
+			<div class="editPaneHeader">Edit Courses</div>
+			<table>
+				<tr>
+					<td>Course</td>
+					<td>Description</td>
+					<td>Edit</td>
+					<td>Delete</td>
+				</tr>
+				{% for course in courses %}
+				<tr>
+					<form  enctype="multipart/form-data"  action="{{ url_for("editCourse") }}" method="post" autocomplete="off">
+						<input type="hidden" name="dataID" value="{{ course.courseID }}"/>
+						<td><input type="textarea" name="course" value="{{ course.course }}"/></td>
+						<td ><textarea rows="5" cols="55" name="description">{{ course.description }}</textarea></td>
+						<td width="350"><input type="submit" value="Edit Course"/></td>
+					</form>
+					<form  enctype="multipart/form-data"  action="{{ url_for("deleteData") }}" method="post" autocomplete="off">
+						<input type="hidden" name="courseID" value="{{ course.courseID }}"/>
+						<td><input type="submit" name="section" value="Delete Course"/></td>
+					</form>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>

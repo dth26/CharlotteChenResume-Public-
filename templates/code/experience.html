@@ -1,0 +1,121 @@
+<!-- populate companies, print to screen-->
+<div class="section">
+	<span class="heading">Experience</span>
+	<br/><br/><br/>
+	{% for company in companies %}
+		<div class="sub_heading">{{company.company}} ( {{company.startDate}}-{{company.endDate}})</div>
+		<div style="color: #495E63;font-size:18px;">{{company.city}},{{company.state}}</div>
+		<div class="section_text">
+		<ul>
+			{% for desc in companyDescriptions %}
+				{% if desc.companyID == company.companyID %}
+					<li>{{ desc.description }}</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+	{% endfor %}
+
+	<div title="Edit Experience" class="openEditPane" id="editExperience"></div>
+</div>
+
+<!-- create edit pane for modifying companies -->
+<div class="editPaneOverlay" id="editExperienceOverlay">
+	<div class="editPane">
+		<div class="closeEditPane" id="editExperienceOverlay">Close</div>
+		<div class="editPaneBlock">
+			<div class="editPaneHeader">New Company</div>
+			<table>
+				<tr>
+					<td>Company</td>
+					<td>Start</td>
+					<td>End</td>
+					<td>Position</td>
+					<td>State</td>
+					<td>City</td>
+					<td>Insert Company</td>
+				</tr>
+				<tr>
+					<form  enctype="multipart/form-data"  action="{{ url_for("insertData") }}" method="post" autocomplete="off">
+					<td><input type="textarea" name="company" placeholder="New"/></td>
+					<td><input size="5" type="textarea" name="start" placeholder="New"/></td>
+					<td><input size="5" type="textarea" name="end" placeholder="New"/></td>
+					<td><input size="7" type="textarea" name="position" placeholder="New"/></td>
+					<td><input size="2" type="textarea" name="state" placeholder="New"/></td>
+					<td><input size="5" type="textarea" name="city" placeholder="New"/></td>
+					<td><input type="submit" name="section" value="Insert Company"/></td>
+					</form>
+				</tr>
+			</table>
+		</div>
+		<div class="editPaneBlock">
+			<div class="editPaneHeader">New Description</div>
+			<table>
+				<tr>
+					<td>Company</td>
+					<td>Description</td>
+					<td>Insert Description</td>
+				</tr>
+				<tr>
+					<form enctype="multipart/form-data"  action="{{ url_for("insertData") }}" method="post" autocomplete="off">
+					<td>
+						<select name="companyID">
+							{% for company in companies %}
+							<option value="{{ company.companyID }}">{{ company.company }}</option>
+							{% endfor %}
+						</select>
+					</td>
+					<td><input size="60" type="textarea" name="description" placeholder="New"/></td>
+					<td><input type="submit" name="section" value="Insert Company Description"/></td>
+					</form>
+				</tr>
+			</table>
+		</div>
+		<div class="editPaneBlock">
+			<div class="editPaneHeader">Edit Company</div>
+			<table>
+				<tr>
+					<td>Company</td>
+					<td>Start</td>
+					<td>End</td>
+					<td>Position</td>
+					<td>State</td>
+					<td>City</td>
+					<td>Edit Company</td>
+					<td>Delete Company</td>
+				</tr>
+				{% for company in companies%}
+				<tr>
+				<form enctype="multipart/form-data"  action="{{ url_for("editCompany") }}" method="post" autocomplete="off">
+					<input type="hidden" name="dataID" value="{{ company.companyID }}"/>
+					<td><input size="14" type="textarea" name="company" value="{{ company.company }}"/></td>
+					<td><input size="5" type="textarea" name="start" value="{{ company.startDate }}"/></td>
+					<td><input size="5" type="textarea" name="end" value="{{ company.endDate }}"/></td>
+					<td><input size="10" type="textarea" name="position" value="{{ company.position }}"/></td>
+					<td><input size="2" type="textarea" name="state" value="{{ company.state }}"/></td>
+					<td><input size="5" type="textarea" name="city" value="{{ company.city }}"/></td>
+					<td><input type="submit" value="Edit Company"/></td>
+				</form>
+				<form enctype="multipart/form-data"  action="{{ url_for("deleteData") }}" method="post" autocomplete="off">
+					<input type="hidden" name="dataID" value="{{ company.companyID }}"/>
+					<td><input type="submit" name="section" value="Delete Company"/></td>
+				</form>
+				</tr>
+				<form enctype="multipart/form-data"  action="{{ url_for("editCompanyDescription") }}" method="post" autocomplete="off">
+				<input type="hidden" name="dataID" value="{{ company.companyID }}"/>
+				{% for d in companyDescriptions%}
+					{% if d.companyID == company.companyID %}
+					<tr>
+						<td style="color:#919190;">Description: </td>
+						<td align="left" colspan="5"><input name="description" type="textarea" size="80" value="{{ d.description }}"/></td>
+						<td><input type="submit" value="Edit Description"/></td>
+					</tr>
+					{% endif %}
+				{% endfor %}
+				</form>
+		
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>

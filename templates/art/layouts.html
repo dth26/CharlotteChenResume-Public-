@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/layouts.css') }}" media="screen" />
+{% endblock %}
+
+{% block js %}
+	<script src="{{ url_for('static', filename='js/layouts.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+	<div class="outerHeaderMenu blockAttributes">
+		<div class="headerMenu">
+			<a href="{{ url_for('Layouts')}}">
+				<div id="layouts" class="headerElement">Layouts</div>
+			</a>
+			<a href="{{ url_for('Graphics')}}">
+				<div id="graphics" class="headerElement">Graphics</div>
+			</a>
+			<a href="{{ url_for('Logos')}}">
+				<div id="logos" class="headerElement">Logos</div>
+			</a>
+			<a href="{{ url_for('Drawings')}}">
+				<div id="drawings" class="headerElement">Drawings</div>
+			</a>
+		</div>
+	</div>
+<!-- highlight menu item that is selected -->
+{% if subpage == "Layouts" %}
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#layouts").toggleClass("headerElementSelected");
+		});
+	</script>
+{% elif subpage == "Graphics" %}
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#graphics").toggleClass("headerElementSelected");
+		});
+	</script>
+{% elif subpage == "Drawings" %}
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#drawings").toggleClass("headerElementSelected");
+		});
+	</script>
+{% elif subpage == "Logos" %}
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#logos").toggleClass("headerElementSelected");
+		});
+	</script>
+{% endif %}
+
+
+<!-- load images to display -->
+<div id="centerContainer" class="centerContainerEdit">
+	<div title="Edit Photos" class="openEditPane" id="editLayout"></div>
+	<div class="block blockAttributes blockAttributesEdit">
+	{% for photo in photos %}
+		<div id="{{photo.idName}}" class="imgBlock">
+			<div class="imgHolder">
+				<img src="../static/images{{ photo.path }}"/>
+			</div>
+			<div class="text">
+				<span class="heading">{{ photo.title }}</span><br/>
+				{{ photo.description }}
+			</div>
+		</div>
+	{% endfor %}
+	</div>
+</div>
+
+<!-- load tinted divs for each pic -->
+{% for photo in photos %}
+	<div id="tinted_{{photo.idName}}" 
+		{% if subpage == "Logos" %}
+			style="background-color:white;"	
+		{% endif %}
+	class="imgTint">
+		<img src="../static/images{{ photo.path }}"/>
+	</div>
+{% endfor %}
+
+<!-- popup edit pane for editing an image  -->
+<!-- load edit pane with photo data -->
+<div class="editPaneOverlay" id="editLayoutOverlay">
+	<div class="editPane">
+		<div class="closeEditPane" id="editLayoutOverlay">Close</div>
+		<div class="editPaneBlock">
+			<span class="editPaneHeader">New Photo</span>
+			<table>
+				<tr>
+					<td>Name</td>
+					<td>Id</td>
+					<td>Description</td>
+					<td>Type</td>
+					<td>Photo</td>
+					<td>Insert Photo</td>
+				</tr>
+				<tr>
+					<form  enctype="multipart/form-data" action="{{ url_for("newPhoto") }}" method="post" autocomplete="off">
+						<td><input value="new" name="title" size="10" type="textarea"/></td>
+						<td><input placeholder="new" name="id" size="10" type="textarea"/></td>
+						<td><input placeholder="new" name="description" size="13" type="textarea"/></td>
+						<td>
+							<select name="imageType">
+								<option value="Layouts">Layout</option>
+								<option value="Graphics">Graphic</option>
+								<option value="Drawings">Drawing</option>
+								<option value="Logos">Logo</option>
+							</select>
+						</td>
+						<td><input placeholder="new" type="file" name="file" accept="image/*"/></td>
+						<td><input placeholder="new" type="submit" value="Create New"/></td>
+					</form>
+				</tr>
+			</table>
+		</div>
+		<div class="editPaneBlock">
+			<span class="editPaneHeader">Edit Photos</span>
+			<table>
+				<tr>
+					<td>Name</td>
+					<td>Id</td>
+					<td>Description</td>
+					<td>Type</td>
+					<td>Path</td>
+					<td>Submit</td>
+					<td>Delete</td>
+				</tr>
+				{% for photo in photos %}
+				<tr>
+					{% set var = "edit"+photo.imageType -%}
+					<form  enctype="multipart/form-data"  action="{{ url_for("editPhoto") }}" method="post" autocomplete="off">
+						<input name="imageId" type="hidden" value="{{ photo.imageID }}"/>
+						<td><input name="title" size="10" type="textarea" value="{{ photo.title }}"/></td>
+						<td><input name="id" size="10" type="textarea" placeholder="{{ photo.idName }}"/></td>
+						<td><input name="description" size="13" type="textarea" placeholder="{{ photo.description}}"/></td>
+						<td>
+							<select name="imageType">
+								<option value="Layouts">{{ photo.imageType }}</option>
+								<option value="Layouts">Layout</option>
+								<option value="Graphics">Graphic</option>
+								<option value="Drawings">Drawing</option>
+								<option value="Logos">Logo</option>
+							</select>
+						</td>
+						<td><input name="path" size="12" type="textarea" placeholder="{{ photo.path }}"></td>
+						<td><input type="submit" value="Edit"></td>
+					</form>
+					<form method="post" action="{{ url_for("deletePhoto") }}">
+						<td>
+							<input name="imageId" type="hidden" value="{{ photo.imageID }}"/>
+							<input type="submit" value="Delete"/>
+						</td>
+					</form>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+
+
+
+
+{% endblock %}

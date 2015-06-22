@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+
+
+{% block js %}<script src="{{ url_for('static', filename='js/code.js') }}"></script>
+{% endblock%}
+
+{% block css %}<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/code.css') }}" media="screen" />
+{% endblock %}
+
+
+{% block content %}
+<div id="centerContainer">
+	<div class="block blockAttributes font" style="height: 250px;">
+		<img style="top: 30px; =left: 30px;" id="headerImg" src="../static/images/charlotte.jpg"/>
+		<div style="left: 300px;" class="headerInfo">
+			<span class="heading">Home</span><br/>
+			<span class="section_text">{{ userData[0].city }}, {{ userData[0].state }}</span><br/><br/>
+			<span class="heading">Phone</span><br/>
+			<span class="section_text">{{ userData[0].phone }}</span><br/><br/>
+			<span class="heading">Email</span><br/>
+			<span class="section_text">{{ userData[0].email }}</span><br/><br/>	
+		</div>
+		<div style="left: 480px;" class="headerInfo">
+			<span class="heading">School</span><br/>
+			<span class="section_text">{{ schools[0].school }}</span><br/><br/>
+			<span class="heading">Major</span><br/>
+			{% for major in majors %}
+				<span class="section_text">{{ major.major }}</span><br/>
+			{% endfor %}
+		</div>
+
+		<div style="left: 650px; border-right: 0px; top: 80px;" class="headerInfo">
+			<img src="../static/images/icons/linkedin.png"/>
+			<a target="blank" href="https://www.linkedin.com/profile/view?id=289654202&authType=NAME_SEARCH&authToken=IZBw&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2Cidx%3A1-1-1%2CtarId%3A1430975696920%2Ctas%3Acharlotte">
+				<span class="link">LinkedIn</span><br/><br/>
+			</a>
+			<img src="../static/images/icons/professional.png"/>
+			<a target="blank" href="../static/files/resume.pdf">
+				<span class="link">Resume.pdf</span><br/><br/>
+			</a>
+		</div>
+	</div>
+	<div id="bodyMenu">
+		<div id='cssmenu'>
+			<ul>
+			   <li id="li_all"><a href='{{ url_for('code') }}'>All</a></li>
+			    <li id="li_education"><a href="{{ url_for('Education') }}">Education</a></li>
+			   <li id="li_courses"><a href="{{ url_for('Courses') }}">Courses</a></li>
+			    <li id="li_skills"><a href="{{ url_for('Skills') }}">Skills</a></li>
+			   <li id="li_experience"><a  href="{{ url_for('Experience') }}">Experience</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="block blockAttributes blockAttributesEdit">
+		{% if subpage == "all" %}
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$("#li_all").toggleClass("active");
+				});
+			</script>	
+			{% include 'code/education.html' %}
+			{% include 'code/courses.html' %}
+			{% include 'code/skills.html' %}
+			{% include 'code/experience.html' %}
+		{% elif subpage == "education" %}
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$("#li_education").toggleClass("active");
+				});
+			</script>
+			{% include 'code/education.html' %}
+
+		{% elif subpage == "skills" %}
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$("#li_skills").toggleClass("active");
+				});
+			</script>
+			{% include 'code/skills.html' %}
+
+		{% elif subpage == "experience" %}
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$("#li_experience").toggleClass("active");
+				});
+			</script>
+			{% include 'code/experience.html' %}
+
+		{% elif subpage == "courses" %}
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$("#li_courses").toggleClass("active");
+				});
+			</script>
+			{% include 'code/courses.html' %}
+		{% endif %}
+	</div>
+</div>
+{% endblock %}
