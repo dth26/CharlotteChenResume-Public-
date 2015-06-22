@@ -52,9 +52,12 @@ $(document).ready(function(){
 	})
 
 	var docHeight = $(document).height();
+	var docWidth = $(document).width();
 	docHeight = docHeight + "px";
+	docWidth = docWidth + "px";
 	$('#force').css('height',docHeight);
-
+    var menuWidth = $('#force').width() + "px";
+    $('#menu').css('width',menuWidth);
 });
 
 
