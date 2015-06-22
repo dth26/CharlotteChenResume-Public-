@@ -27,7 +27,7 @@ $(document).ready(function(){
 		var tint = "tinted_";
 		var newPictureId = tint.concat(pictureId);	/*id of div with tint*/
 		var scroll = $(window).scrollTop();			/*find scroll of page*/
-		$("#"+newPictureId).css("display","initial");
+		$("#"+newPictureId).css("display","block");
 		$("body").css("overflow-y","hidden");
 	});
 
