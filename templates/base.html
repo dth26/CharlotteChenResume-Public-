@@ -1,0 +1,112 @@
+<!-- jinja, python 2,7, sqlalchemy, flask, sqlite3, pythonanywhere servers-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/base.css') }}" media="screen" />
+		<link href='http://fonts.googleapis.com/css?family=Bangers|Satisfy|Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+		<!-- load appropriate jquery -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<title>Charlotte Chen</title>
+
+		<!-- load proper js file -->
+		{% block js %}{% endblock %}
+
+		<!-- load proper cs file -->
+		{% block css %}{% endblock %}
+		<script src="{{ url_for('static', filename='js/base.js') }}"></script>
+	</head>
+	<body>
+		<div id="force">
+			<div id="menu">
+				<div id="Charlotte">
+					Charlotte Chen
+				</div>
+				<div id="menuItemHolder">
+				  <a href="{{ url_for('index') }}" id="homeMenuItem">
+				    <img src="../static/images/icons/star.png"/>
+				  	Home
+				  </a>
+				  <a href="{{ url_for('code') }}" id="developerMenuItem" >
+					<img src="../static/images/icons/star.png"/>
+					Developer
+				  </a>
+				  <a href="{{ url_for('art') }}" id="artistMenuItem" >
+				  	<img src="../static/images/icons/star.png"/>
+				  	Art
+				  </a>
+				  <a href="{{ url_for('about') }}" id="aboutMenuItem">
+				  	<img src="../static/images/icons/star.png"/>
+				  	About
+				  </a>
+				  <a href="{{ url_for('contact') }}" id="contactMenuItem">
+				  	<img src="../static/images/icons/star.png"/>
+				  	Contact
+				  </a>
+				</div>
+				<div class="user">
+					{% if user.username %}
+						<span >Logged in as {{ user.username}} {{ user.lastName}}</span>
+						<a href="{{ url_for('logout') }}">logout</a>
+						<script>
+							$(document).ready(function(){
+								$('.openEditPane').css('display','block');
+							});
+						</script>
+					{% endif %}
+				</div>
+			</div>
+			<ul class="circleMenu">
+				<li><a title="Home" href="{{ url_for('index') }}" id="circleIndex"></a></li>
+				<li><a title="Code" href="{{ url_for('code') }}" id="circleCode"></a></li>
+				<li><a title="Art" href="{{ url_for('art') }}" id="circleArt"></a></li>
+				<li><a title="About" href="{{ url_for('about') }}" id="circleAbout"></a></li>
+				<li><a title="Contact" href="{{ url_for('contact') }}" id="circleContact"></a></li>
+			</ul>
+			<div id="sideSelector">
+				<div id="loginItem" class="slideItem">
+					<form id="loginForm" action="{{ url_for("login") }}" method="post" name="login" autocomplete="off">
+						<img id="submitLogin" src="../static/images/icons/keyorange64.png"/>
+						<span>
+								<input type="text" name="name" placeholder="username"/><br/>
+								<input type="password" name="password" placeholder="password"/>
+						</span>
+					</form>
+				</div>
+				<div id="contactItem" class="slideItem">
+					<img src="../static/images/icons/phoneorange64.png"/>
+					<span>phone:</span>
+				</div>
+				<div id="emailItem" class="slideItem">
+					<img src="../static/images/icons/emailorange64.png"/>
+					<span>
+						Email:
+					</span>
+				</div>
+				<div id="resumeItem" class="slideItem">
+					<img src="../static/images/icons/resumeorange64.png"/>
+					<span>
+						Click to open my resume!
+					</span>
+				</div>
+				<div id="linkedItem" class="slideItem">
+					<img src="../static/images/icons/inorange64.png"/>
+					<span>
+						Click to find me on LinkedIn!
+					</span>
+				</div>
+			</div>
+			<div >
+				{% block content %}
+				{% endblock %}
+			</div>
+		</div>
+
+	</body>
+
+</html>
+
+
+
+
