@@ -24,7 +24,6 @@ $(document).ready(function(){
 	$(".imgTint").click(function(e){
 		var pictureId = $(this).attr("id");
 		$("#"+pictureId).css("display","none");
-		$("#menu").css("z-index","3");	// hide menu when tinted editpane appears
 	});
 
 
