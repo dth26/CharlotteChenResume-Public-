@@ -30,9 +30,6 @@ $(document).ready(function(){
 
 
 
-	  $('body').fadeIn(700, function() {});
-
-
 	$('.slideItem').mouseenter(function(){
 		$(this).stop(true,true).animate({"margin-left": '-=220'});
 	}).mouseleave(function(){
@@ -50,23 +47,27 @@ $(document).ready(function(){
  		var url = "../static/files/resume.pdf";
  		window.open(url, '_blank');
 	})
-
+/*
 	var docHeight = $(document).height();
 	var docWidth = $(document).width();
 	docHeight = docHeight + "px";
 	docWidth = docWidth + "px";
-	$('#force').css('height',docHeight);
-    var menuWidth = $('#force').width() + "px";
-    $('#menu').css('width',menuWidth);
+	//$('#force').css('height',docHeight);
+  //  var menuWidth = $('#force').width() + "px";
+   // $('#menu').css('width',menuWidth);
+   */
 });
 
 
-/* get height of document very last after page loads and images load*/
+/* very last function called after document loads*/
 (function($) {
     $(window).bind("load", function() {
         var docHeight = $(document).height();
+        var docWidth = $(document).width() + 'px';
 		docHeight = docHeight + "px";
 		$('#force').css('height',docHeight);
+
+	//    $('body').hide().fadeIn(1000, function() {});
     });
 })(jQuery);
 

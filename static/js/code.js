@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	$("#developerMenuItem").addClass("menuItemSelected");
 	$("#developerMenuItem").addClass("developerSettings");
-	$("#developerMenuItem img").css("display","initial");
+	$("#developerMenuItem img").css("display","inline");
 
 //	addStar('developerMenuItem');
 

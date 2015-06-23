@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-	<div class="outerHeaderMenu blockAttributes">
+	<div class="outerHeaderMenu blockAttributes centerContainerWidth">
 		<div class="headerMenu">
 			<a href="{{ url_for('Layouts')}}">
 				<div id="layouts" class="headerElement">Layouts</div>
@@ -54,7 +54,7 @@
 
 
 <!-- load images to display -->
-<div id="centerContainer" class="centerContainerEdit">
+<div id="centerContainer" class="centerContainerWidth centerContainerEdit">
 	<div title="Edit Photos" class="openEditPane" id="editLayout"></div>
 	<div class="block blockAttributes blockAttributesEdit">
 	{% for photo in photos %}
@@ -73,9 +73,9 @@
 
 <!-- load tinted divs for each pic -->
 {% for photo in photos %}
-	<div id="tinted_{{photo.idName}}" 
+	<div id="tinted_{{photo.idName}}"
 		{% if subpage == "Logos" %}
-			style="background-color:white;"	
+			style="background-color:white;"
 		{% endif %}
 	class="imgTint">
 		<img src="../static/images{{ photo.path }}"/>

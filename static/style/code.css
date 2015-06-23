@@ -5,7 +5,7 @@ table, tr, td
 	padding: 5px;
 	padding-right: 15px;
 }
-td:nth-child(2) 
+td:nth-child(2)
 {
 	padding-left: 0px;
 }
@@ -19,12 +19,10 @@ td:nth-child(2)
 #bodyMenu
 {
 	position: absolute;
-	width: 850px;
 	height: 40px;
 	top: 300px;
 	font-family: 'Roboto Condensed', sans-serif;
 	left: 50%;
-	margin-left: -425px;
 	z-index: -1;
 }
 #centerContainer{
@@ -54,7 +52,7 @@ td:nth-child(2)
 	border: 2px solid #C8E3DD;
 	width: 250px;
 	height: 180px;
-	display:block; 
+	display:block;
 }
 .headerInfo
 {
@@ -176,7 +174,7 @@ td:nth-child(2)
 }
 #cssmenu > ul > li > a,
 #cssmenu > ul > li {
-  float: left;  
+  float: left;
 }
 
 #cssmenu.align-center > ul {
@@ -247,4 +245,4 @@ td:nth-child(2)
 
 
 
-	
+

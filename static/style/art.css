@@ -3,19 +3,21 @@
 	text-decoration: none;
 
 }
+
 .centerContainerEdit a:hover
 {
 	border: 1px solid #2EE342;
 }
 .centerContainerEdit{
-	width: 1020px !important;
-	height: 450px !important;
-	margin-left: -510px !important;
+	width: 1220px !important;
+	height: 500px !important;
+	margin-left: -610px !important;
+	top: 20% !important;
 }
 .centerContainerEdit a{
 	position: relative;
-	width: 250px !important;
-	height: 450px !important;
+	width: 300px !important;
+	height: 500px !important;
 	border-radius: 10px;
 	cursor: pointer;
 	display: block;
@@ -25,16 +27,16 @@
 {
 	/*
 	position: absolute;
-	
+
 	left: 30px;
 	top: 90px;
 	*/
 	margin-top: 60px;
 	display: block;
-	width: 200px;
-	height: 200px;
+	width: 250px;
+	height: 250px;
 	border: 1px solid #B4B8D4 ;
-    border-radius: 115px; 
+    border-radius: 125px;
 
 }
 .heading
@@ -65,22 +67,22 @@
 	display: block;
 	margin-top: 50px;
 }
-#centerContainer a:nth-child(1) div.block div.circle 
+#centerContainer a:nth-child(1) div.block div.circle
 {
 	background-image: url("../../static/images/layouts/arrivalsurvival.png");
 }
-#centerContainer a:nth-child(2)  div.block div.circle 
+#centerContainer a:nth-child(2)  div.block div.circle
 {
 	background-image: url("../../static/images/graphics/cookies.jpeg");
 	background-position: 65% 45%;
 }
-#centerContainer a:nth-child(3) div.block div.circle 
+#centerContainer a:nth-child(3) div.block div.circle
 {
 	background-image: url("../../static/images/logos/asius2.png");
 	background-color: white;
 	background-position: 18% 42%;
 }
-#centerContainer  a:nth-child(4) div.block div.circle 
+#centerContainer  a:nth-child(4) div.block div.circle
 {
 	background-image: url("../../static/images/drawings/charlotte_transparent.jpeg");
 	background-position: 33% 10%;

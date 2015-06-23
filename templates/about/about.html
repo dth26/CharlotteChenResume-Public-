@@ -12,7 +12,7 @@
 
 
 {% block content %}
-		<div id="centerContainer">
+		<div id="centerContainer" class="centerContainerWidth">
 			<div class="block" style="margin-bottom: 0px;">
 				<div title="Edit About Page" class="openEditPane" id="editAbout"></div>
 			</div>
@@ -24,7 +24,7 @@
 			<div class="block blockAttributes" style="padding-left: 50px;">
 				{% for img in imagesLikes %}
 				<figure id="{{ img.idName }}" class="imgOverlay">
-					<span class="overlayText">{{img.description}}</span>	
+					<span class="overlayText">{{img.description}}</span>
 					<img class="small" src="../static/images/about/{{img.path}}"/>
 				</figure>
 				{% endfor %}
@@ -51,7 +51,7 @@
 				 <div class="blockElement">
 					{% for img in imagesTravel %}
 					<figure id="{{ img.idName }}" class="imgOverlay">
-						<span class="overlayText">{{img.description}}</span>	
+						<span class="overlayText">{{img.description}}</span>
 						<img class="small" src="../static/images/about/{{img.path}}"/>
 					</figure>
 					{% endfor %}
@@ -63,7 +63,7 @@
 			 	<div class="blockElement">
 					{% for img in imagesFashion %}
 					<figure id="{{ img.idName }}" class="imgOverlay">
-						<span class="overlayText">{{img.description}}</span>	
+						<span class="overlayText">{{img.description}}</span>
 						<img class="small" src="../static/images/about/{{img.path}}"/>
 					</figure>
 					{% endfor %}
@@ -75,7 +75,7 @@
 				<div class="blockElement">
 					{% for img in imagesDrawing %}
 					<figure id="{{ img.idName }}" class="imgOverlay">
-						<span class="overlayText">{{img.description}}</span>	
+						<span class="overlayText">{{img.description}}</span>
 						<img class="small" src="../static/images/about/{{img.path}}"/>
 					</figure>
 					{% endfor %}
@@ -184,7 +184,7 @@
 								</td>
 								<td><input type="submit" value="New"></td>
 							</form>
-						
+
 						</tr>
 					</table>
 				</div>

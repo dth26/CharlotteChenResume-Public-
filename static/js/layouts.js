@@ -2,7 +2,7 @@
 $(document).ready(function(){
 	$("#artistMenuItem").addClass("menuItemSelected");
 	$("#artistMenuItem").addClass("artSettings");
-	$("#artistMenuItem img").css("display","initial");
+	$("#artistMenuItem img").css("display","inline");
 
 
 	var height = $(window).height();

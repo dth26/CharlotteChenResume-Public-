@@ -10,7 +10,7 @@
 
 
 {% block content %}
-<div id="centerContainer">
+<div id="centerContainer" class="centerContainerWidth">
 	<div class="block blockAttributes font" style="height: 250px;">
 		<img style="top: 30px; =left: 30px;" id="headerImg" src="../static/images/charlotte.jpg"/>
 		<div style="left: 300px;" class="headerInfo">
@@ -19,7 +19,7 @@
 			<span class="heading">Phone</span><br/>
 			<span class="section_text">{{ userData[0].phone }}</span><br/><br/>
 			<span class="heading">Email</span><br/>
-			<span class="section_text">{{ userData[0].email }}</span><br/><br/>	
+			<span class="section_text">{{ userData[0].email }}</span><br/><br/>
 		</div>
 		<div style="left: 480px;" class="headerInfo">
 			<span class="heading">School</span><br/>
@@ -41,7 +41,7 @@
 			</a>
 		</div>
 	</div>
-	<div id="bodyMenu">
+	<div id="bodyMenu" class="centerContainerWidth">
 		<div id='cssmenu'>
 			<ul>
 			   <li id="li_all"><a href='{{ url_for('code') }}'>All</a></li>
@@ -58,7 +58,7 @@
 				$(document).ready(function(){
 					$("#li_all").toggleClass("active");
 				});
-			</script>	
+			</script>
 			{% include 'code/education.html' %}
 			{% include 'code/courses.html' %}
 			{% include 'code/skills.html' %}
