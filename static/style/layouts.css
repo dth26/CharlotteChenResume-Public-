@@ -5,6 +5,7 @@
 .centerContainerEdit{
 	top: 250px !important;
 	z-index: -1 !important;
+	padding-left: 0px !important;
 }
 .outerHeaderMenu
 {
@@ -21,13 +22,12 @@
 .headerMenu
 {
 	position: absolute;
-	width: auto;
-	height: auto;
-	float: left;
+	width: 440px;
+	height: 26px;
     top: 50%;
     left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
+    margin-left: -220px;
+    margin-top: -13px;
 }
 .headerElement
 {
@@ -72,21 +72,9 @@
 	max-height: 250px;
 	max-width: 90%;
 	margin: 0;
-	/*top: 50%;  center vertically
-	  transform: translate(-50%, -50%) }
-	*/
-	/*  move pic to bottom
-	border: 1px solid #B4B8D4 ;
-  	top: 100%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -100%) }
-    */
     border: 1px solid #B4B8D4 ;
   	top: 50%;
     left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
 }
 .text
 {
@@ -117,7 +105,7 @@
 .imgBlock
 {
 	width: 200px;
-	margin-left: 50px;
+	margin-left: 40px;
 	margin-top: 60px;
 	height: 330px;
 	float: left;

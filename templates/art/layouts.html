@@ -78,7 +78,11 @@
 			style="background-color:white;"
 		{% endif %}
 	class="imgTint">
-		<img src="../static/images{{ photo.path }}"/>
+		<img src="../static/images{{ photo.path }}" id="{{ photo.path }}id"/>
+		   <!-- set margin of image to center it -->
+		<script>
+		    alert({{ photo.path }}+"id");
+		</script>
 	</div>
 {% endfor %}
 

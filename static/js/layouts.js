@@ -19,6 +19,11 @@ $(document).ready(function(){
 		$('#sideSelector').css('z-index','-1');
 	    $("#"+newPictureId).css('display','block');
 //		$("body").css("overflow-y","hidden");
+
+        var margintop = $("#"+newPictureId + " img").height()/2;
+        var marginleft = $("#"+newPictureId + " img").width()/2;
+        $("#"+newPictureId + " img").css('margin-top', -margintop);
+        $("#"+newPictureId + " img").css('margin-left', -marginleft);
 	});
 
 	/*remove picture with tint*/
@@ -29,4 +34,16 @@ $(document).ready(function(){
 
 
 	$("#circleArt").css("background-color","#576F94");
+
+    /* set margins of images in order to center them*/
+    /* cannot set margin to percents because mobile devices will not render content correctly*/
+    $('#centerContainer img').each(function(){
+         var margintop = $(this).height()/2;
+         var marginleft = $(this).width()/2;
+         $(this).css('margin-top',-margintop);
+         $(this).css('margin-left',-marginleft);
+
+    });
+
+
 });
