@@ -6,6 +6,8 @@
 		
 		$('body').css('overflow','hidden');
 			
+		var docHeight = $(document).height() + 'px';
+		$('#image').css('height',docHeight);
 		$('#image').css('top',imageMarginTop);
 
 		$("#homeMenuItem").addClass("menuItemSelected");
