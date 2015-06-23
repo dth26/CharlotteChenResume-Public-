@@ -56,6 +56,10 @@
 	height: auto;
 	top:50%;
  	transform: translate(-0%,-50%);
+ 	-webkit-transform:  translate(-0%,-50%);
+    -moz-transform: translate(-0%,-50%);
+    -o-transform:  translate(-0%,-50%);
+    -ms-transform:  translate(-0%,-50%);
 	text-align: center;
 	color: white;
 	display: none;
@@ -104,6 +108,10 @@
     max-height: 60%;
     max-width: 100%;
     transform: translate(-50%, -90%);
+     -webkit-transform:  translate(-50%, -90%);
+    -moz-transform: translate(-50%, -90%);
+    -o-transform:  translate(-50%, -90%);
+    -ms-transform: translate(-50%, -90%);
     display: inline-block;
 }
 .imgTint img

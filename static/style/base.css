@@ -109,7 +109,10 @@ text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 	top: 50%;
 	left: 2%;
 	margin-right: -0%;
-	transform: translate(-1%,-50%);
+	-webkit-transform: translate(-1%,-50%);
+    -moz-transform: translate(-1%,-50%);
+    -o-transform: translate(-1%,-50%);
+    -ms-transform: translate(-1%,-50%);
 	list-style-type: none;
 	list-style: none;
 	margin: 0px;
@@ -149,6 +152,10 @@ text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 	left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -0%);
+    -webkit-transform: translate(-50%, -0%);
+    -moz-transform: translate(-50%, -0%);
+    -o-transform: translate(-50%, -0%);
+    -ms-transform: translate(-50%, -0%);
 
 }
 .closeEditPane:hover
@@ -165,6 +172,10 @@ text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 	left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
+     -webkit-transform:  translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform:  translate(-50%, -50%);
+    -ms-transform:  translate(-50%, -50%);
     z-index: 6;
     overflow-y: scroll;
     color: black;
@@ -286,30 +297,6 @@ text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 border-color: #505863;
 }
 
-#next
-{
-	position: fixed;
-	width: 150px;
-	height: 40px;
-	line-height: 40px;
-	text-align: center;
-	border-radius: 10px;
-	font-size: 20px;
-	border: 1px solid #FF5762;
-	color: #FF7881;
-	left: 40%;
-	top: 85%;
-	margin-right: -40%;
-	transform: translate(-40%,85%);
-	cursor: pointer;
-	z-index: 100;
-	text-decoration: none;
-}
-#next:hover
-{
-	color: #72C2ED;
-	border: 1px solid #72C2ED;
-}
 .openEditPane
 {
 	position: absolute;
@@ -330,6 +317,10 @@ border-color: #505863;
 	left: 98%;
 	margin-right: -50%;
 	transform: translate(-98%,-0%);
+	     -webkit-transform:  translate(-98%,-0%);
+    -moz-transform: translate(-98%,-0%);
+    -o-transform:  translate(-98%,-0%);
+    -ms-transform:  translate(-98%,-0%);
     font-size: 15px;
     width: 220px;
     height: 100%;
@@ -371,6 +362,10 @@ border-color: #505863;
 	left: 100%;
 	margin-right: -50%;
 	transform: translate(-100%,-50%);
+	-webkit-transform: translate(-100%,-50%);
+    -moz-transform: translate(-100%,-50%);
+    -o-transform: translate(-100%,-50%);
+    -ms-transform: translate(-100%,-50%);
 	z-index: 1000 !important;
 }
 #sideSelector div{

@@ -2,13 +2,7 @@
 
 	$(document).ready(function(){
 		var menuHeight = $('#menu').height();
-		var imageMarginTop = menuHeight+"px";
-
 		$('body').css('overflow','hidden');
-
-		var docHeight = $(document).height() + 'px';
-		$('#image').css('height',docHeight);
-		$('#image').css('top',imageMarginTop);
 
 		$("#homeMenuItem").addClass("menuItemSelected");
 		$("#homeMenuItem").addClass("homeSettings");
@@ -19,3 +13,15 @@
 	});
 
 
+
+
+/* very last function called after document loads*/
+/* set position of image on index page */
+(function($) {
+    $(window).bind("load", function() {
+    	var docHeight = $(document).height() + 'px';
+    	var imageMarginTop = menuHeight+"px";
+		$('#image').css('height',docHeight);
+		$('#image').css('top',imageMarginTop);
+    });
+})(jQuery);
