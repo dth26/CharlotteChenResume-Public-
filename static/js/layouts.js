@@ -14,7 +14,7 @@ $(document).ready(function(){
 		var pictureId = $(this).attr("id");
 		var tint = "tinted_";
 		var newPictureId = tint.concat(pictureId);	/*id of div with tint*/
-		$('#menu').css('z-index','-1');
+	//	$('#menu').css('z-index','-1');
 		$('#sideSelector').css('z-index','-1');
 	    $("#"+newPictureId).css('display','block');
 //		$("body").css("overflow-y","hidden");
