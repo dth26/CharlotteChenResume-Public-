@@ -33,9 +33,10 @@
 		min-height: 760px;
 		max-height: 90%;
 	/*	width: 617px; */
-	  /*   height: 100%; edit*/
+	  /*   height: 100%; edit
 		margin-bottom: 0px;
 		bottom: 0px;
+	*/
 		left:45%;
 		z-index: -1!important;
 	}
