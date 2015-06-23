@@ -19,18 +19,18 @@ Querying Database through console
 
 Add git to local machine
 -----------------------------------
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin https://github.com/dth26/Weather-Map.git
-git push -u origin master
+1) git init
+2) git add README.md
+3) git commit -m "first commit"
+4) git remote add origin https://github.com/dth26/Weather-Map.git
+5) git push -u origin master
 
 Push modified code to master
 ------------------------------------
-git add templates/base.html
-git commit -m "update base.html page"
-git push -u origin master
+1) git add templates/base.html
+2) git commit -m "update base.html page"
+3) git push -u origin master
 
 Pull modified code from master
 ----------------------------------
-git pull origin master
+1) git pull origin master
