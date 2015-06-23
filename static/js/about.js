@@ -36,7 +36,6 @@ $(document).ready(function(){
 		var pictureId = $(this).attr("id");
 		$("#"+pictureId).css("display","none");
 		$("body").css("overflow-y","scroll");
-		$("#menu").css("z-index","3");	// hide menu when tinted editpane appears
 	});
 
 
