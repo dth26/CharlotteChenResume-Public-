@@ -42,10 +42,11 @@ $(document).ready(function(){
 
 
 /* very last function called after document loads*/
+/* set margins of images in order to center them*/
+/* cannot set margin to percents because mobile devices will not render content correctly*/
+/*
 (function($) {
     $(window).bind("load", function() {
-         /* set margins of images in order to center them*/
-          /* cannot set margin to percents because mobile devices will not render content correctly*/
         $('#centerContainer img').each(function(){
             var margintop = $(this).height()/2;
             var marginleft = $(this).width()/2;
@@ -55,3 +56,4 @@ $(document).ready(function(){
         });
     });
 })(jQuery);
+*/
