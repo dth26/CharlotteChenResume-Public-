@@ -1,5 +1,3 @@
-import sys
-sys.path.insert(0, '/var/www/html/Charlotte/main/models')
 
 import smtplib
 

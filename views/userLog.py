@@ -1,7 +1,4 @@
-import sys
-sys.path.insert(0, '/var/www/html/Charlotte/main/models')
 
-from app import app
 from flask import render_template, request, session, redirect, url_for
 
 

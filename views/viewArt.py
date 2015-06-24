@@ -1,5 +1,3 @@
-import sys
-sys.path.insert(0,'var/www/html/Charlotte/main/models')
 
 from app import app
 # invokes the Jinja2 templating engine . Jinja2 substitutes {{...}} blocks with the corresponding values provided as template arguments

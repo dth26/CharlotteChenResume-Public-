@@ -1,5 +1,3 @@
-import sys
-sys.path.insert(0, '/var/www/html/Charlotte/main/models')
 
 from app import app
 # invokes the Jinja2 templating engine . Jinja2 substitutes {{...}} blocks with the corresponding values provided as template arguments
@@ -24,8 +22,8 @@ engine = create_engine(SQLALCHEMY_DATABASE_URI)
 session.configure(bind=engine)
 '''
 
-@app.route('/code')
 @app.route('/code/')
+@app.route('/code')
 def code():
 	userData = getUserData()
 	schools = getSchools()
@@ -46,8 +44,9 @@ def code():
 							companyDescriptions = companyDescriptions,
 							subpage = "all");
 
-@app.route('/code/education')
+
 @app.route('/code/education/')
+@app.route('/code/education')
 def Education():
 	userData = getUserData()
 	schools = getSchools()
@@ -59,8 +58,9 @@ def Education():
 							majors = majors,
 							subpage = "education")
 
-@app.route('/code/courses')
+
 @app.route('/code/courses/')
+@app.route('/code/courses')
 def Courses():
 	userData = getUserData()
 	courses = getCourses()
@@ -74,8 +74,9 @@ def Courses():
 							courses = courses,
 							subpage = "courses")
 
-@app.route('/code/experience')
+
 @app.route('/code/experience/')
+@app.route('/code/experience')
 def Experience():
 	userData = getUserData()
 	courses = getCourses()
@@ -92,8 +93,9 @@ def Experience():
 							companyDescriptions = companyDescriptions,
 							subpage = "experience");
 
-@app.route('/code/skills')
+
 @app.route('/code/skills/')
+@app.route('/code/skills')
 def Skills():
 	userData = getUserData()
 	courses = getCourses()
