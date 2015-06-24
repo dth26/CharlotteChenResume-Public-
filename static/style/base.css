@@ -37,18 +37,6 @@ body
 	min-height: 100%;
 
 }
-/*
-#body
-{
-	position: relative;
-	left: 0px;
-	border: 2px solid yellow;
-	width: 100%;
-	margin: 0px;
-	display: block;
-}
-*/
-
 .blockAttributes{
 	color: #4D4D4D;
 	padding: 20px;
@@ -355,7 +343,7 @@ border-color: #505863;
 #sideSelector{
 	position:fixed;
 	width:71px;
-	height: 392px;
+	height: 440px;
 	padding: 0px;
 	margin: 0px;
 	top: 50%;
@@ -410,7 +398,10 @@ border-color: #505863;
 	top: 292px;
 	background-color: rgba(255,115,0,0.8);
 }
-
+#sideSelector div:nth-child(6){
+	top: 365px;
+	background-color: rgba(153,0,255,0.8);
+}
 /* sideItem text*/
 #sideSelector div span{
 	position:absolute;
