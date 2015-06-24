@@ -5,6 +5,7 @@ var height = $(window).height();
 
 $(document).ready(function(){
 
+    /* if user click login key submit form to userLog.py script */
 	$('#submitLogin').click(function(){
 		//alert({{ url_for("login") }});
 		$('#loginForm').submit();
@@ -29,34 +30,48 @@ $(document).ready(function(){
 	});
 
 
+    /* check if device supports touch */
+    var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 
-	$('.slideItem').mouseenter(function(){
-	    $(this).css('z-index','1002'); // make shadow of current slideItem overshadow that other slideItems
-		$(this).stop(true,true).animate({"margin-left": '-=220'});
-	}).mouseleave(function(){
-		$(this).stop(true,true).animate({"margin-left": '+=220'});
-	});
+    /* implemented for devices that do not use touch and can sense hover */
+    if(!supportsTouch){
+        /* show sideSelector menuItem if hovered over */
+    	$('.slideItem').mouseenter(function(){
+    	    $(this).css('z-index','1002'); // make shadow of current slideItem overshadow that other slideItems
+    		$(this).stop(true,true).animate({"margin-left": '-=220'});
+    	}).mouseleave(function(){
+    	    $(this).stop(true,true).animate({"margin-left": '+=220'});
+    	});
+    }
+
+    /* implemented for tablet/mobile devices that cannot detect hover */
+    if(supportsTouch){
+    	$('.slideItem').click(function(){
+    	    var marginleft = $(this).css('margin-left');
+
+    	    if(marginleft == '-220px'){
+    	        $(this).stop(true,true).animate({"margin-left": '+=220'});
+    	    }else if(marginleft == '0px'){
+    	        $(this).stop(true,true).animate({"margin-left": '-=220'});
+    	    }
+    	});
+    }
 
 
+    /* if user clicks sideSelector item #linkedItem open linkedin profile on new page */
 	$('#linkedItem').click(function(){
  		var url = "https://www.linkedin.com/profile/view?id=289654202&authType=NAME_SEARCH&authToken=IZBw&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2Cidx%3A1-1-1%2CtarId%3A1434727653030%2Ctas%3Achar";
  		window.open(url, '_blank');
 
 	});
 
+
+    /* if user clicks sideSelector item #resumeItem open resume on new page */
 	$('#resumeItem').click(function(){
  		var url = "../static/files/resume.pdf";
  		window.open(url, '_blank');
 	})
-/*
-	var docHeight = $(document).height();
-	var docWidth = $(document).width();
-	docHeight = docHeight + "px";
-	docWidth = docWidth + "px";
-	//$('#force').css('height',docHeight);
-  //  var menuWidth = $('#force').width() + "px";
-   // $('#menu').css('width',menuWidth);
-   */
+
 });
 
 
@@ -72,7 +87,7 @@ $(document).ready(function(){
     });
 })(jQuery);
 
-
+/* used on about page. helps with smooth imageoverlay on hover */
 function sleep(milliseconds) {
   var start = new Date().getTime();
   for (var i = 0; i < 1e7; i++) {
@@ -82,6 +97,7 @@ function sleep(milliseconds) {
   }
 }
 
+/*
 function addStar(parent){
 
 	var elem = document.createElement("img");
@@ -89,3 +105,4 @@ function addStar(parent){
 	document.getElementById(parent).appendChild(elem);
 
 }
+*/
