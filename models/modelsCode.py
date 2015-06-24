@@ -11,9 +11,8 @@ from app import app
 import os
 
 
-basedir = "/var/www/html/Charlotte/main/"
 
-# school 
+# school
 class School(db.Model):
 	__tablename__ = 'School'
 	__table_args__ = {'extend_existing': True}			# ONLY IF TABLE ALREADY EXISTS IN DATABASE
@@ -51,7 +50,7 @@ class Major(db.Model):
 		self.schoolID = schoolID
 		self.major = major
 		self.degree = degree
-	
+
 
 #courses
 class Course(db.Model):
@@ -143,7 +142,7 @@ def getSchools():
 
 def getMajors():
 	majors = Major.query.all()
-	return majors 
+	return majors
 
 def getCourses():
 	courses = Course.query.all()
@@ -163,7 +162,7 @@ def getCompanyDescriptions():
 
 
 
-# user functions 
+# user functions
 @app.route('/code/editCourse', methods=['GET','POST'])
 def editCourse():
 	if request.method != 'POST':
@@ -181,7 +180,7 @@ def editCourse():
 
 	query = text('UPDATE Course SET description=:description WHERE courseID==:courseID')
 	connection.execute(query, courseID = courseID, description = description)
-	
+
 	query = text('UPDATE Course SET course=:course WHERE courseID==:courseID')
 	connection.execute(query, course=course, courseID=courseID)
 
@@ -204,7 +203,7 @@ def editCompany():
 	city = request.form['city']
 	companyID = request.form['dataID']
 
-	
+
 	# connect to database
 	engine = create_engine('sqlite:///' + os.path.join(basedir, 'db_file.db'), echo=True)
 	connection = engine.connect()
@@ -255,7 +254,7 @@ def editCompanyDescription():
 
 
 
-# user functions 
+# user functions
 @app.route('/code/editSchool', methods=['GET','POST'])
 def editSchool():
 	if request.method != 'POST':
@@ -351,10 +350,10 @@ def insertData():
 		state = request.form['state']
 		city = request.form['city']
 		query = text('INSERT INTO Company(`company`,`startDate`,`endDate`,`position`,`state`,`city`) VALUES(:company,:start,:end,:position,:state,:city)')
-		
+
 		if company!="" and start!="" and end!="" and position!="" and state!="" and city!="":
 			connection.execute(query, company = company, start = start, end = end, position = position, state = state, city = city)
-		
+
 		connection.close()
 		return redirectURL('experience')
 	elif section == "Insert Company Description":
@@ -362,10 +361,10 @@ def insertData():
 		description = request.form['description']
 		companyID = request.form['companyID']
 		query = text('INSERT INTO CompanyDescription(`companyID`,`description`) VALUES(:companyID,:description)')
-	
+
 		if description!= "" and companyID!= "":
 			connection.execute(query, description = description, companyID = companyID)
-		
+
 		connection.close()
 		return redirectURL('experience')
 	elif section == "Insert Skill":
@@ -377,7 +376,7 @@ def insertData():
 
 		if skill != "" and years != "":
 			connection.execute(query,skill=skill, years=years, major=1)
-		
+
 		connection.close()
 		return redirectURL('skill')
 
@@ -448,7 +447,7 @@ def getUserData():
 
 def getMajors():
 	majors = Major.query.all()
-	return majors 
+	return majors
 
 def getCourses():
 	courses = Course.query.all()

@@ -11,6 +11,7 @@ from modelsCode import *
 # 'href="{{ url_for('index') }}"'
 @app.route('/')
 @app.route('/index')
+@app.route('/index/')
 def index():
 	return render_template('index.html', user = session)
 

@@ -1,5 +1,3 @@
-import sys
-sys.path.insert(0, '/var/www/html/Charlotte/main/')
 
 from __init__ import db
 from sqlalchemy import *
@@ -10,9 +8,7 @@ from sqlalchemy.engine import create_engine
 import os
 
 
-basedir = "/var/www/html/Charlotte/main/"
 
-	
 class imagesAbout(db.Model):
 	__tablename__ = 'imagesAbout'
 	_table_args__ = {'extend_existing': True}			# ONLY IF TABLE ALREADY EXISTS IN DATABASE
@@ -24,7 +20,7 @@ class imagesAbout(db.Model):
 	path = Column(String)
 
 	def __init__(self,imageID, idName, description, imageType, path):
-		self.idName = idName									
+		self.idName = idName
 		self.imageID = imageID
 		self.description = description
 		self.imageType = imageType
@@ -50,11 +46,11 @@ class descriptionsAbout(db.Model):
 def newAboutDescription():
 	if request.method != 'POST':
 		return redirect(url_for('about'))
-	
+
 	idName = request.form['idName']
 	description = request.form['description']
 	descType = request.form['descType']
-	
+
 	# connect to database
 	engine = create_engine('sqlite:///' + os.path.join(basedir, 'db_file.db'), echo=True)
 	connection = engine.connect()
@@ -67,8 +63,8 @@ def newAboutDescription():
 		descType = descType)
 	connection.close()
 	return redirect(url_for('about'))
-	
-		
+
+
 @app.route('/about/newAboutPhoto', methods=['GET', 'POST'])
 def newAboutPhoto():
 	if request.method != 'POST':
@@ -123,8 +119,8 @@ def editAboutPhoto():
 		updatePhotoID(idName, imageID, connection)
 	if imageType != "":
 		updatePhotoType(imageType, imageID, connection)
-	
-			
+
+
 	connection.close()
 	return redirect(url_for('about'))
 
@@ -135,18 +131,18 @@ def editAboutDescription():
 	idName = request.form['idName']
 	description = request.form['description']
 	descType = request.form['descType']
-	
+
 	if idName != "":
 		updateDescriptionidName(idName, descID, connection)
 	if description != "":
 		updateDescriptionDescription(description, descID, connection)
 	if descType != "":
 		updateDescriptionType(descType, descID, connection)
-			
+
 	connection.close()
 	return redirect(url_for('about'))
-	
-	
+
+
 def updateDescriptionidName(value, descID, connection):
 	query = text('UPDATE descriptionsAbout SET idName=:value WHERE descID == :descID')
 	connection.execute(
@@ -175,24 +171,24 @@ def updatePhotoType(value, imageID, connection):
 	connection.execute(
 		query,
 		value = value,
-		imageID = imageID)	
+		imageID = imageID)
 
 def updatePhotoID(value, imageID, connection):
 	query = text('UPDATE idName SET idName=:value WHERE imageID == :imageID')
 	connection.execute(
 		query,
 		value = value,
-		imageID = imageID)	
+		imageID = imageID)
 
 def updatePhotoDescription(value, imageID, connection):
 	query = text('UPDATE idName SET idName=:value WHERE imageID == :imageID')
 	connection.execute(
 		query,
 		value = value,
-		imageID = imageID)	
+		imageID = imageID)
 
 
-	
+
 def getAboutDescriptions(type):
 	if(type == ""):
 		descriptions = descriptionsAbout.query.all()

@@ -25,6 +25,7 @@ session.configure(bind=engine)
 '''
 
 @app.route('/code')
+@app.route('/code/')
 def code():
 	userData = getUserData()
 	schools = getSchools()
@@ -34,7 +35,7 @@ def code():
 	companies = getCompanies()
 	companyDescriptions = getCompanyDescriptions()
 
-	return render_template('code/code.html', 
+	return render_template('code/code.html',
 							user = session,
 							userData = userData,
 							schools = schools,
@@ -46,11 +47,12 @@ def code():
 							subpage = "all");
 
 @app.route('/code/education')
+@app.route('/code/education/')
 def Education():
 	userData = getUserData()
 	schools = getSchools()
 	majors = getMajors()
-	return render_template('code/code.html', 
+	return render_template('code/code.html',
 							user = session,
 							userData = userData,
 							schools = schools,
@@ -58,12 +60,13 @@ def Education():
 							subpage = "education")
 
 @app.route('/code/courses')
+@app.route('/code/courses/')
 def Courses():
 	userData = getUserData()
 	courses = getCourses()
 	schools = getSchools()
 	majors = getMajors()
-	return render_template('code/code.html', 
+	return render_template('code/code.html',
 							user = session,
 							userData = userData,
 							schools = schools,
@@ -72,6 +75,7 @@ def Courses():
 							subpage = "courses")
 
 @app.route('/code/experience')
+@app.route('/code/experience/')
 def Experience():
 	userData = getUserData()
 	courses = getCourses()
@@ -79,7 +83,7 @@ def Experience():
 	majors = getMajors()
 	companies = getCompanies()
 	companyDescriptions = getCompanyDescriptions()
-	return render_template('code/code.html', 
+	return render_template('code/code.html',
 							user = session,
 							userData = userData,
 							schools = schools,
@@ -89,13 +93,14 @@ def Experience():
 							subpage = "experience");
 
 @app.route('/code/skills')
+@app.route('/code/skills/')
 def Skills():
 	userData = getUserData()
 	courses = getCourses()
 	schools = getSchools()
 	majors = getMajors()
 	skills = getSkills()
-	return render_template('code/code.html', 
+	return render_template('code/code.html',
 							user = session,
 							userData = userData,
 							schools = schools,

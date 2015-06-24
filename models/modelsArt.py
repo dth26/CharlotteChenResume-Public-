@@ -1,5 +1,3 @@
-import sys
-sys.path.insert(0, '/var/www/html/Charlotte/main/')
 
 from __init__ import db
 from sqlalchemy import *
@@ -10,9 +8,8 @@ from sqlalchemy.engine import create_engine
 import os
 
 
-basedir = "/var/www/html/Charlotte/main/"
 
-	
+
 class Images(db.Model):
 	__tablename__ = 'Images'
 	_table_args__ = {'extend_existing': True}			# ONLY IF TABLE ALREADY EXISTS IN DATABASE
@@ -25,7 +22,7 @@ class Images(db.Model):
 	path = Column(String)
 
 	def __init__(self,imageID, idName, title, description, imageType, path):
-		self.idName = idName									
+		self.idName = idName
 		self.imageID = imageID
 		self.title = title
 		self.description = description
@@ -52,7 +49,7 @@ def deletePhoto():
 @app.route('/art/newPhoto', methods=['GET', 'POST'])
 def newPhoto():
 
-	if request.method != 'POST':	
+	if request.method != 'POST':
 		return redirect(url_for('Layouts'))
 
 	# get new photo data
@@ -92,7 +89,7 @@ def newPhoto():
 
 	query = text('INSERT INTO Images(`title`,`idName`,`description`,`imageType`,`path`) VALUES(:title, :idName, :description, :imageType, :path)')
 	connection.execute(
-                  query, 
+                  query,
                   title = title,
                   idName = idName,
                   description = description,
@@ -119,10 +116,10 @@ def editPhoto():
 	description = request.form['description']
 	imageType = request.form['imageType']
 	path = request.form['path']
-	
+
 	if description != "":
 		updateDescription(description, imageId, connection)
-	
+
 	if title != "":
 		updateTitle(title, imageId, connection)
 
@@ -145,35 +142,35 @@ def editPhoto():
 def updateTitle(title, imageId, connection):
 	query = text('UPDATE Images SET title=:title WHERE imageID == :imageId')
 	connection.execute(
-                  query, 
+                  query,
                   title = title,
                   imageId = imageId)
 
 def updateDescription(description, imageId, connection):
 	query = text('UPDATE Images SET description =:description WHERE imageID == :imageId')
 	connection.execute(
-                  query, 
+                  query,
                   description = description,
                   imageId = imageId)
 
 def updatePath(path, imageId, connection):
 	query = text('UPDATE Images SET path=:path WHERE imageID == :imageId')
 	connection.execute(
-                  query, 
+                  query,
                    imageId = imageId,
                   path = path)
 
 def upateIdName(idName, imageId, connection):
 	query = text('UPDATE Images SET idName =:idName WHERE imageID == :imageId')
 	connection.execute(
-                  query, 
+                  query,
                   imageId = imageId,
                   idName = idName)
 
 def updateImageType(imageType, imageId, connection):
 	query = text('UPDATE Images SET imageType =:imageType WHERE imageID == :imageId')
 	connection.execute(
-                  query, 
+                  query,
                   imageId = imageId,
                   imageType = imageType)
 

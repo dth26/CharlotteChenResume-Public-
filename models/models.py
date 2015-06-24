@@ -1,6 +1,4 @@
-import sys
-sys.path.insert(0, '/var/www/html/Charlotte/main/models')
-sys.path.insert(0, '/var/www/html/Charlotte/main/')
+
 
 #from flask_sqlalchemy import SQLAlchemy
 #from sqlalchemy import *
@@ -12,6 +10,8 @@ from sqlalchemy import *
 from modelsCode import *
 from modelsArt import *
 from modelsAbout import *
+
+basedir = "/home/pythonprogrammer/mysite/"
 
 
 

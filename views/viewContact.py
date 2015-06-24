@@ -8,10 +8,12 @@ from modelsContact import *
 from flask import render_template, request, session
 
 @app.route('/contact')
+@app.route('/contact/')
 def contact():
 	return render_template('contact/contact.html', user = session);
 
 @app.route('/contact/sent',  methods=['GET', 'POST'])
+@app.route('/contact/sent/',  methods=['GET', 'POST'])
 def sent():
 	message = request.form['message']
 	sender = request.form['from']
@@ -30,7 +32,7 @@ def sent():
 	# send email to user
 	try:	# sucessful message request
 
-		text = """Subject: %s ----- %s """ % (subject, message)  
+		text = """Subject: %s ----- %s """ % (subject, message)
 		returnMessage = "Message Sent Sucessfully to " + receiver + "!"
 
 		server = smtplib.SMTP('smtp.gmail.com:587')
@@ -40,7 +42,7 @@ def sent():
 		server.quit()
 	except:
 		returnMessage = "Message failed to send to " + receiver +"."
-	
+
 	return render_template('contact/sent.html', user = session, returnMessage = returnMessage)
 
 

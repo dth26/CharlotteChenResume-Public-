@@ -4,6 +4,7 @@ from flask import render_template, session
 from modelsAbout import *
 
 @app.route('/about')
+@app.route('/about/')
 def about():
 	# get descriptions
 	descMe = getAboutDescriptions("me")
@@ -13,7 +14,7 @@ def about():
 	descFashion = getAboutDescriptions("fashion")
 	descDrawing  = getAboutDescriptions("drawing")
 	descriptions = getAboutDescriptions("")
-	
+
 	# get photos
 	imagesMe = getAboutPhotos("main")
 	imagesLikes = getAboutPhotos("about")
@@ -21,8 +22,8 @@ def about():
 	imagesTravel = getAboutPhotos("travel")
 	imagesDrawings = getAboutPhotos("drawing")
 	photos =  getAboutPhotos("")
-	
-	return render_template('about/about.html', 
+
+	return render_template('about/about.html',
 				descriptions=descriptions,
 				descMe=descMe,
 				facts=facts,

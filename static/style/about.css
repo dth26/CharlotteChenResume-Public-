@@ -1,4 +1,8 @@
-
+.blockAttributes{
+    font-family: 'Roboto Condensed', sans-serif;
+    padding-left: 80px;
+    padding-right: 80px;
+}
 
 #cover{
 	background-image: url("../images/about/charlottetwo.jpg");
@@ -23,7 +27,7 @@
   position: relative;
   float: left;
   /*border: thin silver solid; */
-  margin: 0.4em;
+  margin: 0.7em;
   padding: 0.3em;
   cursor: pointer;
   box-shadow: rgba(0,0,0,.2) 3px 5px 5px;

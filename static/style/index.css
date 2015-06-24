@@ -7,9 +7,12 @@
 	   	font-family: 'Bangers', cursive;
 	   	color: #C4A5B9;
 	   	list-style: none;
-	   	left: 9%;
-		top: 45%;
-		margin-top: -150px;
+	   	left: 10%;
+		top: 50%;
+		-webkit-transform: translate(-10%,-50%);
+        -moz-transform: translate(-10%,-50%);
+        -o-transform: translate(-10%,-50%);
+        -ms-transform: translate(-10%,-50%);
 		z-index: -1;
 	}
 	#charlotte

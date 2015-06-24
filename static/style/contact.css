@@ -1,6 +1,6 @@
 
 
-table{
+table,tr,td{
 	margin: 0px !important;
 }
 tr
@@ -29,8 +29,8 @@ td:nth-child(1)
 	  font-family: 'Roboto Condensed', sans-serif;
 }
 .centerContainerEdit{
-	width: 1100px !important;
-	margin-left: -550px !important;
+	width: 980px !important;
+	margin-left: -520px !important;
 }
 
 input[type="text"]

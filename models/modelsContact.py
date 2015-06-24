@@ -9,8 +9,6 @@ from app import app
 import os
 
 
-basedir = "/var/www/html/Charlotte/main/"
-
 class Messages(db.Model):
 	__tablename__ = 'Messages'
 	__table_args__ = {'extend_existing': True}			# ONLY IF TABLE ALREADY EXISTS IN DATABASE

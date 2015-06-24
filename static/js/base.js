@@ -31,6 +31,7 @@ $(document).ready(function(){
 
 
 	$('.slideItem').mouseenter(function(){
+	    $(this).css('z-index','1002'); // make shadow of current slideItem overshadow that other slideItems
 		$(this).stop(true,true).animate({"margin-left": '-=220'});
 	}).mouseleave(function(){
 		$(this).stop(true,true).animate({"margin-left": '+=220'});

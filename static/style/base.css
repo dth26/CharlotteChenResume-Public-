@@ -75,8 +75,8 @@ body
 	margin-bottom: 0px;
 }
 .centerContainerWidth{
-    width: 1050px;
-	margin-left: -525px !important;
+    width: 950px;
+	margin-left: -475px !important;
 }
 #centerContainer{
 	position: absolute;
@@ -354,8 +354,8 @@ border-color: #505863;
 }
 #sideSelector{
 	position:fixed;
-	width:81px;
-	height: 402px;
+	width:71px;
+	height: 392px;
 	padding: 0px;
 	margin: 0px;
 	top: 50%;
@@ -369,26 +369,25 @@ border-color: #505863;
 	z-index: 1000 !important;
 }
 #sideSelector div{
-	height: 80px;
-	width: 420px;
+	height: 70px;
+	width: 410px;
 	position: absolute;
 	cursor: pointer;
-	z-index: 1001;
 	margin: 0px;
 	font-size: 20px;
 	border: 1px solid  rgba(57,56,77,.7);
-
-		-webkit-box-shadow: -2px 0px 5px 3px rgba(181,181,181,1);
+	-webkit-box-shadow: -2px 0px 5px 3px rgba(181,181,181,1);
 	-moz-box-shadow: -2px 0px 5px 3px rgba(181,181,181,1);
 	box-shadow: -2px 0px 5px 3px rgba(181,181,181,1);
+	z-index: 1001;
 }
 #sideSelector div img{
 	position: absolute;
 	top: 50%;
 	left: 15px;
-	margin-top: -25px;
-	height: 50px;
-	width: 50px;
+	margin-top: -20px;
+	height: 40px;
+	width: 40px;
 }
 
 #sideSelector div:nth-child(1){
@@ -396,19 +395,19 @@ border-color: #505863;
 	background-color: rgba(255,0,0,0.7);
 }
 #sideSelector div:nth-child(2){
-	top: 80px;
+	top: 73px;
 	background-color: rgba(72,0,255,0.7);
 }
 #sideSelector div:nth-child(3){
-	top: 160px;
+	top: 143px;
 	background-color: rgba(0,158,176,0.7);
 }
 #sideSelector div:nth-child(4){
-	top: 240px;
+	top: 213px;
 	background-color: rgba(2,186,8,0.8);
 }
 #sideSelector div:nth-child(5){
-	top: 320px;
+	top: 283px;
 	background-color: rgba(255,115,0,0.8);
 }
 
