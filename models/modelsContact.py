@@ -8,6 +8,8 @@ from flask import request, session
 from app import app
 import os
 
+basedir = "/home/pythonprogrammer/mysite/"
+
 
 class Messages(db.Model):
 	__tablename__ = 'Messages'

@@ -6,28 +6,33 @@ from app import app
 from flask import render_template, request, session
 from modelsArt import *
 
+@app.route('/art/')
 @app.route('/art')
 def art():
 	return render_template('art/art.html', subpage = "ArtMain", user = session);
 
+@app.route('/art/layouts/')
 @app.route('/art/layouts')
 def Layouts():
 	photos = getPhotos("Layouts")
 	return render_template('art/layouts.html', photos = photos , subpage = "Layouts", user = session);
 
 
+@app.route('/art/graphics/')
 @app.route('/art/graphics')
 def Graphics():
 	photos = getPhotos("Graphics")
 	return render_template('art/layouts.html', photos = photos ,subpage = "Graphics",  user = session);
 
-
+@app.route('/art/logos/')
 @app.route('/art/logos')
 def Logos():
 	photos = getPhotos("Logos")
 	return render_template('art/layouts.html', photos = photos ,subpage = "Logos", user = session);
 
 
+
+@app.route('/art/drawings/')
 @app.route('/art/drawings')
 def Drawings():
 	photos = getPhotos("Drawings")

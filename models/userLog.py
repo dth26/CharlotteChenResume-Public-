@@ -4,6 +4,8 @@ from models import *
 
 
 
+basedir = "/home/pythonprogrammer/mysite/"
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
 	name = request.form.get('name')
@@ -21,7 +23,7 @@ def login():
 		session['phone'] = user[0].phone
 	else:
 		session.pop('username', None)
-	
+
 	return render_template('index.html', user = session)
 
 

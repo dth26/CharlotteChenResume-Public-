@@ -7,6 +7,7 @@ from flask import request, url_for, render_template, redirect
 from sqlalchemy.engine import create_engine
 import os
 
+basedir = "/home/pythonprogrammer/mysite/"
 
 
 class imagesAbout(db.Model):

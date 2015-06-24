@@ -11,6 +11,10 @@ from app import app
 import os
 
 
+basedir = "/home/pythonprogrammer/mysite/"
+
+
+
 
 # school
 class School(db.Model):
