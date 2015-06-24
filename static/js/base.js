@@ -72,6 +72,13 @@ $(document).ready(function(){
  		window.open(url, '_blank');
 	})
 
+
+     /* if user clicks sideSelector item #questionItem redirect to build page */
+	$('#questionItem').click(function(){
+ 		var url = "http://pythonprogrammer.pythonanywhere.com/build/";
+ 		window.open(url, '_self' );
+	})
+
 });
 
 
@@ -97,12 +104,17 @@ function sleep(milliseconds) {
   }
 }
 
-/*
-function addStar(parent){
 
-	var elem = document.createElement("img");
-	elem.setAttribute("src", "");
-	document.getElementById(parent).appendChild(elem);
+/* hide sideSelector if window is minimized */
+$(window).resize(function(){
+    var docWidth = $(document).width();
+    var windowWidth = window.outerWidth;
 
-}
-*/
+    if(windowWidth <  screen.availWidth - 50){
+        $('#sideSelector').fadeOut(1000);
+    }else{
+        $('#sideSelector').hide().fadeIn(1000);
+    }
+});
+
+

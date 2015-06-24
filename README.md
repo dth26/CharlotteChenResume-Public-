@@ -1,12 +1,16 @@
 # CharlotteChenResume
 
-app.py - contains actual flask app that initiates program, the first module that is called.
-config.py - connects flask app to sqlite3 database by declaring the path to the db_file.db file
-db_create.py - creates the database in a file called db_file.db
-templates - these are the actual html files that construct the layout of the page 'file.html'
-models - contains data for structure and creation of database tables, data manipulation, and data pulls
-views - handles front-end/which template and data to return from the templates and models folder. Each url links to a function that returns
-       a specific template and it's corresponding data from a model
+app.py          - contains actual flask app that initiates program, the first module that is called.
+config.py       - connects flask app to sqlite3 database by declaring the path to the db_file.db file
+db_create.py    - creates the database in a file called db_file.db
+templates       - these are the actual html files that construct the layout of the page 'file.html'
+models          - contains data for structure and creation of database tables, data manipulation, and data pulls.
+                    a) Any new models should be imported into models.py
+views           - handles front-end/which template and data to return from the templates and models folder. Each url links to a function that returns
+                  a specific template and it's corresponding data from a model.
+                    a) Any new views should be imported into app.py
+                    b) All views must have session api key
+                    c) All views must return user = session data to template
 static - contains files like javascript, stylesheets, and images
 
 Each page will have its own template, javascript, stylesheet, model, and view

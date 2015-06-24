@@ -1,0 +1,29 @@
+.blockAttributes{
+    padding-left: 90px;
+    padding-right: 90px;
+}
+#firstList{
+    list-style-type: none;
+    font-size: 30px;
+}
+.heading{
+    font-weight: bold;
+    color:#3F4559;
+	font-family: 'Bangers', cursive;
+}
+ol{
+    margin: 10px;
+    margin-left: 40px;
+}
+ul{
+    position: absolute;
+    left: 40%;
+    top: 250px;
+    -webkit-transform: translate(-40%,-50%);
+    -moz-transform: translate(-40%,-50%);
+    -o-transform: translate(-40%,-50%);
+    -ms-transform: translate(-40%,-50%);
+}
+ul,ol{
+    font-family: 'Roboto Condensed', sans-serif;
+}

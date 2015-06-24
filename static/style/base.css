@@ -124,12 +124,12 @@ body
 	margin-left: 0px;
 }
 .circleMenu a {
-	width: 10px;
-	height: 10px;
+	width: 12px;
+	height: 12px;
 	border: 1px solid #576F94;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
 	cursor: pointer;
 	display:inline-block;
 	text-decoration: none;
@@ -399,15 +399,15 @@ border-color: #505863;
 	background-color: rgba(72,0,255,0.7);
 }
 #sideSelector div:nth-child(3){
-	top: 143px;
+	top: 146px;
 	background-color: rgba(0,158,176,0.7);
 }
 #sideSelector div:nth-child(4){
-	top: 213px;
+	top: 219px;
 	background-color: rgba(2,186,8,0.8);
 }
 #sideSelector div:nth-child(5){
-	top: 283px;
+	top: 292px;
 	background-color: rgba(255,115,0,0.8);
 }
 
@@ -430,6 +430,8 @@ border-color: #505863;
 	padding: 0px;
 	background-color: #C3C1C7;
 	border-radius: 5px;
+	-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
 	width: 150px;
 	height: 20px;
 	border: 1px solid blue;

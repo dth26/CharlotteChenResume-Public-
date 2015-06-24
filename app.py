@@ -16,6 +16,7 @@ from viewArt import *
 from userLog import *
 from viewContact import *
 from viewAbout import *
+from viewSoftware import *
 
 
 
