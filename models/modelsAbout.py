@@ -9,7 +9,7 @@ import os
 
 basedir = "/home/pythonprogrammer/mysite/"
 
-
+# images table for about page
 class imagesAbout(db.Model):
 	__tablename__ = 'imagesAbout'
 	_table_args__ = {'extend_existing': True}			# ONLY IF TABLE ALREADY EXISTS IN DATABASE
@@ -27,7 +27,7 @@ class imagesAbout(db.Model):
 		self.imageType = imageType
 		self.path = path
 
-
+# descriptions table for about page
 class descriptionsAbout(db.Model):
 	__tablename__ = 'descriptionsAbout'
 	_table_args__ = {'extend_existing': True}			# ONLY IF TABLE ALREADY EXISTS IN DATABASE
@@ -43,6 +43,8 @@ class descriptionsAbout(db.Model):
 		self.idName = idName
 		self.description = description
 
+
+# create a new description
 @app.route('/about/newAboutDescription', methods=['GET', 'POST'])
 def newAboutDescription():
 	if request.method != 'POST':
@@ -66,6 +68,8 @@ def newAboutDescription():
 	return redirect(url_for('about'))
 
 
+
+# create a new photo
 @app.route('/about/newAboutPhoto', methods=['GET', 'POST'])
 def newAboutPhoto():
 	if request.method != 'POST':
@@ -103,6 +107,7 @@ def newAboutPhoto():
 	return redirect(url_for('about'))
 
 
+# edit metadata for an image
 @app.route('/about/editAboutPhoto', methods=['GET', 'POST'])
 def editAboutPhoto():
 	# connect to database
@@ -126,6 +131,7 @@ def editAboutPhoto():
 	return redirect(url_for('about'))
 
 
+# edit about description
 @app.route('/about/editAboutDescription', methods=['GET', 'POST'])
 def editAboutDescription():
 	descID = request.form['descID']
@@ -143,7 +149,8 @@ def editAboutDescription():
 	connection.close()
 	return redirect(url_for('about'))
 
-
+# called by editAboutDescription
+# edit idName
 def updateDescriptionidName(value, descID, connection):
 	query = text('UPDATE descriptionsAbout SET idName=:value WHERE descID == :descID')
 	connection.execute(
@@ -151,6 +158,8 @@ def updateDescriptionidName(value, descID, connection):
 		value = value,
 		descID = descID)
 
+# called by editAboutDescription
+# edit description
 def updateDescriptionDescription(value, descID, connection):
 	query = text('UPDATE descriptionsAbout SET description=:value WHERE descID == :descID')
 	connection.execute(
@@ -158,6 +167,8 @@ def updateDescriptionDescription(value, descID, connection):
 		value = value,
 		descID = descID)
 
+# called by editAboutDescription
+# edit descType
 def updateDescriptionType(value, descID, connection):
 	query = text('UPDATE descriptionsAbout SET descType=:value WHERE descID == :descID')
 	connection.execute(
@@ -166,7 +177,8 @@ def updateDescriptionType(value, descID, connection):
 		descID = descID)
 
 
-
+# called by editAboutPhoto
+# edit imagetype
 def updatePhotoType(value, imageID, connection):
 	query = text('UPDATE imagesAbout SET imageType=:value WHERE imageID == :imageID')
 	connection.execute(
@@ -174,6 +186,9 @@ def updatePhotoType(value, imageID, connection):
 		value = value,
 		imageID = imageID)
 
+
+# called by editAboutPhoto
+# edit idName
 def updatePhotoID(value, imageID, connection):
 	query = text('UPDATE idName SET idName=:value WHERE imageID == :imageID')
 	connection.execute(
@@ -181,15 +196,18 @@ def updatePhotoID(value, imageID, connection):
 		value = value,
 		imageID = imageID)
 
+# called by editAboutPhoto
+# edit description
 def updatePhotoDescription(value, imageID, connection):
-	query = text('UPDATE idName SET idName=:value WHERE imageID == :imageID')
+	query = text('UPDATE idName SET description=:value WHERE imageID == :imageID')
 	connection.execute(
 		query,
 		value = value,
 		imageID = imageID)
 
 
-
+# return about descriptions for a certain type (fashion, likes, etc)
+# if no type specified return all descriptions
 def getAboutDescriptions(type):
 	if(type == ""):
 		descriptions = descriptionsAbout.query.all()
@@ -197,6 +215,9 @@ def getAboutDescriptions(type):
 		descriptions = descriptionsAbout.query.filter_by(descType=type)
 	return descriptions
 
+
+# return images for a certain type(fashion, likes, etc)
+# if no type specified return all photos
 def getAboutPhotos(type):
 	if(type == ""):
 		photos = imagesAbout.query.all()
@@ -205,6 +226,8 @@ def getAboutPhotos(type):
 	return photos
 
 
+# delete a photo
+# note this does not delete photo from server, only deletes record in table
 @app.route('/about/deleteAboutPhoto', methods=['GET', 'POST'])
 def deleteAboutPhoto():
 	imageId = request.form['imageId']
@@ -221,6 +244,7 @@ def deleteAboutPhoto():
 	return redirect(url_for('about'))
 
 
+# delete a description
 @app.route('/about/deleteAboutDescription', methods=['GET', 'POST'])
 def deleteAboutDescription():
 	descID = request.form['descID']

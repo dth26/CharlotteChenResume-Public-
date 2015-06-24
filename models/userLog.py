@@ -6,6 +6,10 @@ from models import *
 
 basedir = "/home/pythonprogrammer/mysite/"
 
+
+# user verification on login
+# assign admin privileges
+# if user not found in table, user will not recieve privileges
 @app.route('/login', methods=['GET', 'POST'])
 def login():
 	name = request.form.get('name')
@@ -26,7 +30,7 @@ def login():
 
 	return render_template('index.html', user = session)
 
-
+# logout and remove user privileges
 @app.route('/logout')
 def logout():
     # remove the username from the session if it's there
@@ -34,4 +38,6 @@ def logout():
     return redirect(url_for('index'))
 
 # set the secret key.  keep this really secret:
+# create a session
+# any script that uses session must add this line of code
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'

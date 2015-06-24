@@ -16,7 +16,7 @@ basedir = "/home/pythonprogrammer/mysite/"
 
 
 
-# school
+# school table
 class School(db.Model):
 	__tablename__ = 'School'
 	__table_args__ = {'extend_existing': True}			# ONLY IF TABLE ALREADY EXISTS IN DATABASE
@@ -39,7 +39,7 @@ class School(db.Model):
 		self.year = year
 
 
-# major
+# major table
 class Major(db.Model):
 	__tablename__ = 'Major'
 	__table_args__ = {'extend_existing': True}			# ONLY IF TABLE ALREADY EXISTS IN DATABASE
@@ -56,7 +56,7 @@ class Major(db.Model):
 		self.degree = degree
 
 
-#courses
+#courses table
 class Course(db.Model):
 	__tablename__ = 'Course'
 	__table_args__ = {'extend_existing': True}
@@ -78,7 +78,7 @@ class Course(db.Model):
 
 
 
-# skills
+# skills table
 class Skill(db.Model):
 	__tablename__ = 'Skill'
 	__table_args__ = {'extend_existing': True}
@@ -96,7 +96,7 @@ class Skill(db.Model):
 		self.years = years
 		self.order = order
 
-# company
+# company table
 class Company(db.Model):
 	__tablename__ = 'Company'
 	__table_args__ = {'extend_existing': True}
@@ -118,7 +118,7 @@ class Company(db.Model):
 		self.state = state
 		self.city = city
 
-# company descriptions
+# company descriptions table
 class CompanyDescription(db.Model):
 	__tablename__ = 'CompanyDescription'
 	__table_args__ = {'extend_existing': True}
@@ -166,7 +166,7 @@ def getCompanyDescriptions():
 
 
 
-# user functions
+# edit a course
 @app.route('/code/editCourse', methods=['GET','POST'])
 def editCourse():
 	if request.method != 'POST':
@@ -192,7 +192,7 @@ def editCourse():
 
 	return redirectURL('course')
 
-
+# edit a company
 @app.route('/code/editCompany', methods=['GET','POST'])
 def editCompany():
 	if request.method != 'POST':
@@ -235,6 +235,8 @@ def editCompany():
 
 	return redirectURL('experience')
 
+
+# edit a company description
 @app.route('/code/editCompanyDescription', methods=['GET','POST'])
 def editCompanyDescription():
 	if request.method != 'POST':
@@ -258,7 +260,7 @@ def editCompanyDescription():
 
 
 
-# user functions
+# edit school
 @app.route('/code/editSchool', methods=['GET','POST'])
 def editSchool():
 	if request.method != 'POST':
@@ -289,7 +291,7 @@ def editSchool():
 	return redirectURL('education')
 
 
-
+# edit skill
 @app.route('/code/editSkill', methods=['GET','POST'])
 def editSkill():
 	if request.method != 'POST':
@@ -314,6 +316,7 @@ def editSkill():
 	return redirectURL('skill')
 
 
+# create a new course, school, skill, company
 @app.route('/code/insertData', methods=['GET','POST'])
 def insertData():
 	if request.method != 'POST':
@@ -384,7 +387,7 @@ def insertData():
 		connection.close()
 		return redirectURL('skill')
 
-
+# delete a record
 @app.route('/code/deleteData', methods=['GET','POST'])
 def deleteData():
 	if request.method != 'POST':

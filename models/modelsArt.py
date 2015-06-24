@@ -10,7 +10,7 @@ import os
 basedir = "/home/pythonprogrammer/mysite/"
 
 
-
+# images table for art page
 class Images(db.Model):
 	__tablename__ = 'Images'
 	_table_args__ = {'extend_existing': True}			# ONLY IF TABLE ALREADY EXISTS IN DATABASE
@@ -31,6 +31,8 @@ class Images(db.Model):
 		self.path = path
 
 
+# delete a photo
+# note this does not delete photo on server, only deletes record in table
 @app.route('/art/deletePhoto', methods=['GET', 'POST'])
 def deletePhoto():
 	imageId = request.form['imageId']
@@ -46,7 +48,7 @@ def deletePhoto():
 
 	return redirect(url_for('Layouts'))
 
-
+# create a new photo
 @app.route('/art/newPhoto', methods=['GET', 'POST'])
 def newPhoto():
 
@@ -102,7 +104,7 @@ def newPhoto():
 	return redirect(url_for('Layouts'))
 
 
-
+# edit photo
 @app.route('/art/editPhoto', methods=['GET', 'POST'])
 def editPhoto():
 
@@ -139,7 +141,8 @@ def editPhoto():
 	return redirect(url_for('Layouts'))
 
 
-
+# called by editPhoto
+# edit title
 def updateTitle(title, imageId, connection):
 	query = text('UPDATE Images SET title=:title WHERE imageID == :imageId')
 	connection.execute(
@@ -147,6 +150,9 @@ def updateTitle(title, imageId, connection):
                   title = title,
                   imageId = imageId)
 
+
+# called by editPhoto
+# edit description
 def updateDescription(description, imageId, connection):
 	query = text('UPDATE Images SET description =:description WHERE imageID == :imageId')
 	connection.execute(
@@ -154,6 +160,9 @@ def updateDescription(description, imageId, connection):
                   description = description,
                   imageId = imageId)
 
+
+# called by editPhoto
+# edit path
 def updatePath(path, imageId, connection):
 	query = text('UPDATE Images SET path=:path WHERE imageID == :imageId')
 	connection.execute(
@@ -161,6 +170,8 @@ def updatePath(path, imageId, connection):
                    imageId = imageId,
                   path = path)
 
+# called by editPhoto
+# edit idName
 def upateIdName(idName, imageId, connection):
 	query = text('UPDATE Images SET idName =:idName WHERE imageID == :imageId')
 	connection.execute(
@@ -168,6 +179,8 @@ def upateIdName(idName, imageId, connection):
                   imageId = imageId,
                   idName = idName)
 
+# called by editPhoto
+# edit imageType
 def updateImageType(imageType, imageId, connection):
 	query = text('UPDATE Images SET imageType =:imageType WHERE imageID == :imageId')
 	connection.execute(
@@ -177,6 +190,7 @@ def updateImageType(imageType, imageId, connection):
 
 
 
+# return photos of type(drawings, logos, graphics, layouts)
 def getPhotos(type):
 	photos = Images.query.filter_by(imageType=type);
 	return photos

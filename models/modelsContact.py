@@ -10,7 +10,7 @@ import os
 
 basedir = "/home/pythonprogrammer/mysite/"
 
-
+# messages table, keep record of messages sent
 class Messages(db.Model):
 	__tablename__ = 'Messages'
 	__table_args__ = {'extend_existing': True}			# ONLY IF TABLE ALREADY EXISTS IN DATABASE
@@ -26,7 +26,7 @@ class Messages(db.Model):
 		self.subject = subject
 		self.message = message
 
-
+# create a new record for message in message table
 def insertMessage(sender,subject,message):
 	# connect to database
 	engine = create_engine('sqlite:///' + os.path.join(basedir, 'db_file.db'), echo=True)
