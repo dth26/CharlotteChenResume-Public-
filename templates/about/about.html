@@ -73,7 +73,7 @@
 				<div class="header">I Love Drawing</div>
 				<div class="blockElement">{{ descDrawing[0].description }}</div>
 				<div class="blockElement">
-					{% for img in imagesDrawing %}
+					{% for img in imagesDrawings %}
 					<figure id="{{ img.idName }}" class="imgOverlay">
 						<span class="overlayText">{{img.description}}</span>
 						<img class="small" src="../static/images/about/{{img.path}}"/>
