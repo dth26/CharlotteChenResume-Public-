@@ -65,7 +65,7 @@
 				{% for course in courses %}
 				<tr>
 					<form  enctype="multipart/form-data"  action="{{ url_for("editCourse") }}" method="post" autocomplete="off">
-						<input type="hidden" name="dataID" value="{{ course.courseID }}"/>
+						<input type="hidden" name="courseID" value="{{ course.courseID }}"/>
 						<td><input type="textarea" name="course" value="{{ course.course }}"/></td>
 						<td ><textarea rows="5" cols="55" name="description">{{ course.description }}</textarea></td>
 						<td width="350"><input type="submit" value="Edit Course"/></td>

@@ -172,7 +172,7 @@ def updatePath(path, imageId, connection):
 
 # called by editPhoto
 # edit idName
-def upateIdName(idName, imageId, connection):
+def updateIdName(idName, imageId, connection):
 	query = text('UPDATE Images SET idName =:idName WHERE imageID == :imageId')
 	connection.execute(
                   query,

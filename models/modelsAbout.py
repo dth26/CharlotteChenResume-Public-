@@ -92,7 +92,7 @@ def newAboutPhoto():
 	# Make the filename safe, remove unsupported chars
 		filename = file.filename
 		# compute location to save photo
-		uploaddir = basedir + "/static/images/about" + filename
+		uploaddir = basedir + "/static/images/about/" + filename
 	# Move the file form the storage location
 		file.save(uploaddir)
 
@@ -120,7 +120,7 @@ def editAboutPhoto():
 	imageType = request.form['imageType']
 
 	if description != "":
-		updatePhotoDescription("description", description, imageID, connection)
+		updatePhotoDescription(description, imageID, connection)
 	if idName != "":
 		updatePhotoID(idName, imageID, connection)
 	if imageType != "":
@@ -190,7 +190,7 @@ def updatePhotoType(value, imageID, connection):
 # called by editAboutPhoto
 # edit idName
 def updatePhotoID(value, imageID, connection):
-	query = text('UPDATE idName SET idName=:value WHERE imageID == :imageID')
+	query = text('UPDATE imagesAbout SET idName=:value WHERE imageID == :imageID')
 	connection.execute(
 		query,
 		value = value,
@@ -199,7 +199,7 @@ def updatePhotoID(value, imageID, connection):
 # called by editAboutPhoto
 # edit description
 def updatePhotoDescription(value, imageID, connection):
-	query = text('UPDATE idName SET description=:value WHERE imageID == :imageID')
+	query = text('UPDATE imagesAbout SET description=:value WHERE imageID == :imageID')
 	connection.execute(
 		query,
 		value = value,

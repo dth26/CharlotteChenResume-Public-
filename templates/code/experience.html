@@ -101,19 +101,22 @@
 					<td><input type="submit" name="section" value="Delete Company"/></td>
 				</form>
 				</tr>
-				<form enctype="multipart/form-data"  action="{{ url_for("editCompanyDescription") }}" method="post" autocomplete="off">
-				<input type="hidden" name="dataID" value="{{ company.companyID }}"/>
-				{% for d in companyDescriptions%}
-					{% if d.companyID == company.companyID %}
-					<tr>
-						<td style="color:#919190;">Description: </td>
-						<td align="left" colspan="5"><input name="description" type="textarea" size="80" value="{{ d.description }}"/></td>
-						<td><input type="submit" value="Edit Description"/></td>
-					</tr>
-					{% endif %}
-				{% endfor %}
-				</form>
-		
+    				{% for d in companyDescriptions%}
+    				<form enctype="multipart/form-data"  action="{{ url_for("editCompanyDescription") }}" method="post" autocomplete="off">
+    			    	<input type="hidden" name="dataID" value="{{ d.companyDescriptionID }}"/>
+    					{% if d.companyID == company.companyID %}
+    					<tr>
+    						<td style="color:#919190;">Description: </td>
+    						<td align="left" colspan="5"><input name="description" type="textarea" size="80" value="{{ d.description }}"/></td>
+    						<td><input type="submit" value="Edit Description"/></td>
+    					{% endif %}
+    				</form>
+    				<form enctype="multipart/form-data"  action="{{ url_for("deleteCompanyDescription") }}" method="post" autocomplete="off">
+					    <input type="hidden" name="dataID" value="{{ d.companyDescriptionID }}"/>
+					    <td><input type="submit" name="section" value="Delete Company Description"/></td>
+				    </form>
+				        </tr>
+    				{% endfor %}
 				{% endfor %}
 			</table>
 		</div>

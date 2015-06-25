@@ -134,7 +134,7 @@ class CompanyDescription(db.Model):
 
 
 # Initialize database schema (create tables)
-db.create_all()
+# db.create_all()
 
 
 
@@ -243,7 +243,7 @@ def editCompanyDescription():
 		return redirect(url_for('code'))
 
 	# get form input
-	companyID = request.form['dataID']
+	companyDescriptionID = request.form['dataID']
 	description = request.form['description']
 
 
@@ -251,8 +251,8 @@ def editCompanyDescription():
 	engine = create_engine('sqlite:///' + os.path.join(basedir, 'db_file.db'), echo=True)
 	connection = engine.connect()
 
-	query = text('UPDATE CompanyDescription SET description=:description WHERE companyID=:companyID')
-	connection.execute(query, description=description, companyID=companyID)
+	query = text('UPDATE CompanyDescription SET description=:description WHERE companyDescriptionID=:companyDescriptionID')
+	connection.execute(query, description=description, companyDescriptionID=companyDescriptionID)
 	connection.close()
 
 	return redirectURL('experience')
@@ -395,7 +395,7 @@ def deleteData():
 
 	# get form input
 	section = request.form['section']
-	dataID = request.form['dataID']
+	dataID = request.form['courseID']
 
 	# connect to database
 	engine = create_engine('sqlite:///' + os.path.join(basedir, 'db_file.db'), echo=True)
@@ -424,7 +424,20 @@ def deleteData():
 	elif section == "Delete Skill":
 		query = text('DELETE FROM Skill WHERE skillID=:skillID')
 		connection.execute(query, skillID=dataID)
-		return redirectURL('skill')
+        connection.close()
+        return redirectURL('skill')
+
+# delete a record
+@app.route('/code/deleteCompanyDescription', methods=['GET','POST'])
+def deleteCompanyDescription():
+    # connect to database
+	engine = create_engine('sqlite:///' + os.path.join(basedir, 'db_file.db'), echo=True)
+	connection = engine.connect()
+	dataID = request.form['dataID']
+	query = text('DELETE FROM CompanyDescription WHERE companyDescriptionID=:companyDescriptionID')
+	connection.execute(query, companyDescriptionID=dataID)
+	connection.close()
+	return redirectURL('experience')
 
 
 
