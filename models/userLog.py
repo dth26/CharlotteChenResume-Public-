@@ -25,10 +25,10 @@ def login():
 		session['city'] = user[0].city
 		session['state'] = user[0].state
 		session['phone'] = user[0].phone
+		return render_template('index.html', user = session)
 	else:
 		session.pop('username', None)
-
-	return render_template('index.html', user = session)
+		return render_template('loginError.html', user = session)
 
 # logout and remove user privileges
 @app.route('/logout')
