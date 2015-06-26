@@ -16,6 +16,7 @@ $(document).ready(function(){
             $('#currentCenter').attr('value','three');
         }else if(currentCenter == "three"){
            $('#three').fadeOut(1000, function(){
+                $('#three').css('display','none');
                 $('#four').fadeIn(1500);
             });
             $('#currentCenter').attr('value','four');
