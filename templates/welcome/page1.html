@@ -1,0 +1,56 @@
+<!-- jinja, python 2,7, sqlalchemy, flask, sqlite3, pythonanywhere servers-->
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta name="viewport" content="width=1325px, maximum-scale=2.0" />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/welcome.css') }}" media="screen" />
+		<link href='http://fonts.googleapis.com/css?family=Bangers|Satisfy|Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+		<!-- load appropriate jquery -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="{{ url_for('static', filename='js/jquery-ui.js') }}"></script>
+
+		<title>Charlotte Chen</title>
+
+		<script src="{{ url_for('static', filename='js/welcome.js') }}"></script>
+	</head>
+	<body>
+	    <input type="hidden" value="one" id="currentCenter">
+		<div id="one" class="center">
+            <div class="red">Happy Birthday Charlotte!</div>
+            <div class="blue">This is my gift to you.</div>
+            <div class="teal">Click Next!</div>
+		</div>
+		<div id="two" class="center">
+            <div class="blue">Don't worry, I know what you're thinking; What is this and why is Dan such a nerd?</div>
+            <div class="teal">Patience. :]</div>
+		</div>
+		<div id="three" class="center">
+            <div class="blue">A few rules..</div>
+		</div>
+		<div id="four" class="center">
+    	{% if user != 0 %}
+                <div class="blue">Login Created Already, Click Next!</div>
+		{% else %}
+		 <form  enctype="multipart/form-data" action="{{ url_for("createUser") }}" method="post" autocomplete="off">
+		    <table>
+		        <tr><td>User:</td><td><input type="text" name="user"></td></tr>
+		        <tr><td>First name:</td><td><input type="text" name="user"></td></tr>
+		        <tr><td>Last name:</td><td><input type="text" name="user"></td></tr>
+		        <tr><td>City:</td><td> <input type="text" name="city"></td></tr>
+		        <tr><td>State:</td><td> <input type="text" name="state"></td></tr>
+		        <tr><td>Phone:</td><td> <input type="text" name="phone"></td></tr>
+		        <tr><td>Email</td><td>: <input type="text" name="email"></td></tr>
+		        <tr><td>Password:</td><td> <input type="text" name="password"></td></tr>
+		    </table>
+		   </form>
+		{% endif %}
+		</div>
+	    <a id="next">Next</a>
+	</body>
+
+</html>
+
+
+
+

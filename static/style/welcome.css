@@ -1,0 +1,78 @@
+
+body{
+    min-width: 1325px;
+    overflow: hidden;
+    font-family: 'Bangers', cursive;
+    font-size: 80px;
+}
+.center{
+    position: absolute;
+    width: 900px;
+    height: 600px;
+    top: 25%;
+	left: 50%;
+	margin-right: -0%;
+	-webkit-transform: translate(-50%,-25%);
+    -moz-transform: translate(-50%,-25%);
+    -o-transform: translate(-50%,-25%);
+    -ms-transform: translate(-50%,-25%);
+    display: none;
+}
+.center div{
+    width: 100%;
+    margin: 30px;
+}
+#one{
+    display: block;
+}
+#next{
+    position: absolute;
+    border: 1px solid #31EB47;
+    color: #31EB47;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    top: 90%;
+	left: 50%;
+	margin-right: -0%;
+	-webkit-transform: translate(-50%,-90%);
+    -moz-transform: translate(-50%,-90%);
+    -o-transform: translate(-50%,-90%);
+    -ms-transform: translate(-50%,-90%);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 30px;
+    z-index: -1;
+}
+#next:hover{
+    color: #4A8CFF;
+    border-color: #4A8CFF;
+}
+.smaller{
+    font-size: 65px;
+}
+.strike{
+    position: relative;
+    border-bottom: 3px solid red;
+    max-height: 32px;
+    display: inline-block;
+    width: auto;
+    z-index: 2000;
+    background-color: black;
+}
+.strikeUnder{
+    position: absolute;
+    display: inline-block;
+    z-index: -1;
+}
+
+.blue{
+    color: #4AD7FF;
+}
+.teal{
+    color: #00FFFF;
+}
+.red{
+    color: #FF3838;
+}
