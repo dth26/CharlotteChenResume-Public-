@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
     var animated = 0;
 
     $('#next').click(function(){
