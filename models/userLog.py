@@ -37,7 +37,42 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('index'))
 
+
+@app.route('/createUser',methods=['POST'])
+def createUser():
+    username = request.form.get('username')
+    lastname = request.form.get('lastname')
+    password = request.form.get('password')
+    state = request.form.get('state')
+    city = request.form.get('city')
+    phone = request.form.get('phone')
+    email = request.form.get('email')
+
+    createNewUser(username,lastname, password,state,city,phone,email)
+
+    return redirect(url_for('index'))
+
+
+
 # set the secret key.  keep this really secret:
 # create a session
 # any script that uses session must add this line of code
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

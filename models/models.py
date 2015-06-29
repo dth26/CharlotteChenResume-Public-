@@ -5,7 +5,8 @@
 #from sqlalchemy.dialects import mysqldef
 from __init__ import db
 from sqlalchemy import *
-
+from sqlalchemy.orm import relationship, backref
+from flask import request, url_for, render_template, redirect, session
 # import ALL models
 from modelsCode import *
 from modelsArt import *
@@ -71,6 +72,14 @@ class Pages(db.Model):
 db.create_all()
 
 
+
+def createNewUser(username, lastname, password,state,city,phone,email):
+	# connect to database
+	engine = create_engine('sqlite:///' + os.path.join(basedir, 'db_file.db'), echo=True)
+	connection = engine.connect()
+	query = text('INSERT INTO Users(`firstName`,`lastName`,`password`,`state`,`city`,`phone`,`email`) VALUES(:username, :lastname,:password, :state, :city, :phone, :email)')
+	connection.execute(query, username = username, lastname=lastname, password = password, state = state, city = city, phone = phone, email = email)
+	connection.close()
 
 
 def getUserData():

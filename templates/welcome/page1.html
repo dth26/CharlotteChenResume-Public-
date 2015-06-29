@@ -26,28 +26,42 @@
             <div class="teal">Patience. :]</div>
 		</div>
 		<div id="three" class="center">
-            <div class="blue">A few notes..</div>
-            <div class="teal smaller">
-                <ul>
-                    <li></li>
-                </ul>
+            <div class="blue fontOne">
+        I started this project the first day of summer break and it's been a work and progress since. It's not perfect, but that's your problem to fix now.
+               <span class="red">But hey, atleast I got you started.</span>
             </div>
 		</div>
 		<div id="four" class="center">
+            <span class="blue fontTwo margin-smaller">The designer part was really hard for me + don't forget that I'm colorblind :) What you need to do:</span>
+             <div class="red fontThree">
+                <ul>
+                    <li>Fix the Imperfections.</li>
+                    <li>Delete Code. Add Code. Break Code.</li>
+                    <li>Fix It.</li>
+                </ul>
+    		</div>
+    		<span class="blue fontTwo margin-smaller">This is your site. Your're the artist and this is your canvas.</span>
+    	</div>
+		<div id="five" class="center">
     	{% if user != 0 %}
                 <div class="blue">Login Created Already, Click Next!</div>
 		{% else %}
+		<script>
+		    $(document).ready(function(){
+		        $('#next').css('display','none');
+		    });
+		</script>
 		 <form  enctype="multipart/form-data" action="{{ url_for("createUser") }}" method="post" autocomplete="off">
-		    <table>
-		        <tr><td>User:</td><td><input type="text" name="user"></td></tr>
-		        <tr><td>First name:</td><td><input type="text" name="user"></td></tr>
-		        <tr><td>Last name:</td><td><input type="text" name="user"></td></tr>
+		    <table cellspacing="20px">
+		        <tr><td>Username:</td><td><input type="text" name="username"></td></tr>
+		        <tr><td>Last name:</td><td><input type="text" name="lastname"></td></tr>
 		        <tr><td>City:</td><td> <input type="text" name="city"></td></tr>
 		        <tr><td>State:</td><td> <input type="text" name="state"></td></tr>
 		        <tr><td>Phone:</td><td> <input type="text" name="phone"></td></tr>
-		        <tr><td>Email</td><td>: <input type="text" name="email"></td></tr>
+		        <tr><td>Email:</td><td> <input type="text" name="email"></td></tr>
 		        <tr><td>Password:</td><td> <input type="text" name="password"></td></tr>
 		    </table>
+		     <input type="submit" value="Create Application"/>
 		   </form>
 		{% endif %}
 		</div>
