@@ -8,14 +8,14 @@
 	border: 1px solid #2EE342;
 }
 .centerContainerEdit{
-	width: 1250px !important;
+	width: 1200px !important;
 	height: 600px !important;
 	margin-left: -625px !important;
 	top: 20% !important;
 }
 .centerContainerEdit a{
 	position: relative;
-	width: 312px !important;
+	width: 300px !important;
 	height: 500px !important;
 	border-radius: 10px;
 	-webkit-border-radius: 10px;
