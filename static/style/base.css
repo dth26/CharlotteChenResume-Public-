@@ -441,7 +441,7 @@ border-color: #505863;
 
 .highlight{
     color: yellow !important;
-
+   width: 150px !important;
    margin-left: -20px !important;
 }
 
