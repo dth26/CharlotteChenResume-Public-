@@ -237,7 +237,7 @@ body
 }
 #menuItemHolder a {
 	text-decoration: none;
-	color: #7E88F7;
+	color: #8A93FF;
 	font-size:20px;
 	width:140px;
 	display: block;
@@ -414,7 +414,6 @@ border-color: #505863;
 	display: block;
 	float: left;
 	top: 20%;
-
 }
 #sideSelector div span input{
 	margin-bottom: 5px;
