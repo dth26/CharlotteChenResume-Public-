@@ -3,13 +3,16 @@
     padding-left: 80px;
     padding-right: 80px;
 }
-
+.coverAttributes{
+    width: 750px;
+    height: 200px;
+}
 #cover{
 	background-image: url("../images/about/charlottetwo.jpg");
 	margin: 0px;
 	padding: 0px;
 	height: 200px !important;
-	background-position: 28% 35%;
+	background-position: 50% 35%;
 	overflow: hidden;
 	box-shadow: none !important;
 	z-index: -1;
@@ -21,7 +24,7 @@
 	height: auto;
 	font-size: 35px;
 	color:#3F4559;
-	font-family: 'Bangers', cursive;
+	font-family: 'Bangers', cursive !important;
 }
 .imgOverlay {
   position: relative;
@@ -48,6 +51,24 @@
   right: 0;
   background: none;
    transition: all .3s linear;
+}
+
+.imgCover{
+      position: relative;
+  float: left;
+  /*border: thin silver solid; */
+
+  padding: 0.3em;
+  box-shadow: rgba(0,0,0,.2) 3px 5px 5px;
+  background-color: white;
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .imgOverlay:hover:before {   background: rgba(255,255,255, 0.8); }
@@ -80,7 +101,7 @@
 {
 	position: absolute;
 	float: right;
-	width: 50%;
+	width: 700px;
 	top: 0px;
 	overflow: hidden;
 	max-height: 100%;
