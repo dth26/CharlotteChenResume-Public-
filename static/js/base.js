@@ -79,6 +79,8 @@ $(document).ready(function(){
  		window.open(url, '_self' );
 	})
 
+
+
 });
 
 
@@ -109,12 +111,29 @@ function sleep(milliseconds) {
 $(window).resize(function(){
     var docWidth = $(document).width();
     var windowWidth = window.outerWidth;
-
     if(windowWidth <  screen.availWidth - 50){
         $('#sideSelector').fadeOut(1000);
     }else{
         $('#sideSelector').hide().fadeIn(1000);
     }
 });
+
+/* if page is zoomed in hide sideSelector */
+function onZoom(){
+
+    var zoom = (document.width / window.innerWidth);
+    	/* for mobile to detect zoom, if ratio greater than 1 then mobile is zoomed */
+	if(zoom > 1){
+        $('#sideSelector').fadeOut(1000);
+	}else{
+	    $('#sideSelector').css('display','block');
+	}
+}
+
+
+window.setInterval(function(){
+  onZoom();
+}, 3);
+
 
 
