@@ -32,9 +32,9 @@ $(document).ready(function(){
 
     /* check if device supports touch */
     var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
-
     /* implemented for devices that do not use touch and can sense hover */
     if(!supportsTouch){
+
         /* show sideSelector menuItem if hovered over */
     	$('.slideItem').mouseenter(function(){
     	    $(this).css('z-index','1002'); // make shadow of current slideItem overshadow that other slideItems
@@ -45,7 +45,12 @@ $(document).ready(function(){
     }
 
     /* implemented for tablet/mobile devices that cannot detect hover */
-    if(supportsTouch){
+    if(supportsTouch && supportsTouch != undefined){
+
+        window.setInterval(function(){
+            onZoom();
+        }, 3);
+
     	$('.slideItem').click(function(){
     	    var marginleft = $(this).css('margin-left');
 
@@ -82,6 +87,8 @@ $(document).ready(function(){
 
 
 });
+
+
 
 
 /* very last function called after document loads*/
@@ -123,7 +130,7 @@ function onZoom(){
 
     var zoom = (document.width / window.innerWidth);
     	/* for mobile to detect zoom, if ratio greater than 1 then mobile is zoomed */
-	if(zoom > 1){
+	if(zoom > 1.5){
         $('#sideSelector').fadeOut(1000);
 	}else{
 	    $('#sideSelector').css('display','block');
@@ -131,9 +138,6 @@ function onZoom(){
 }
 
 
-window.setInterval(function(){
-  onZoom();
-}, 3);
 
 
 
