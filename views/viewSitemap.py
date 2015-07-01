@@ -10,7 +10,7 @@ from flask import render_template
 
 @app.route('/sitemap.xml')
 @app.route('/sitemap.xml/')
-def index():
+def sitemap():
 	return render_template('sitemap.xml')
 
 
