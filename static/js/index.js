@@ -9,6 +9,9 @@ $(document).ready(function(){
 	$("#homeMenuItem").addClass("homeSettings");
 	$("#circleIndex").css("background-color","#576F94");
 	$("#homeMenuItem img").css("display","inline");
+
+    /* remove extra overflow on mobile platforms*/
+	$('#force').css('overflow','hidden');
 });
 
 
