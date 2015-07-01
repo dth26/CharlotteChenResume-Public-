@@ -17,7 +17,7 @@ from viewContact import *
 from viewAbout import *
 from viewSoftware import *
 from viewWelcome import*
-
+from viewSitemap import *
 
 
 #wsgi_app = app.wsgi_app 		# Make the WSGI interface at the top level so wfastcgi can get it
