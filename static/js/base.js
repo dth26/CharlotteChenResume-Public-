@@ -125,7 +125,7 @@ $(window).resize(function(){
     }
 });
 
-/* if page is zoomed in hide sideSelector */
+/* mobile: if page is zoomed in hide sideSelector */
 function onZoom(){
 
     var zoom = (document.width / window.innerWidth);

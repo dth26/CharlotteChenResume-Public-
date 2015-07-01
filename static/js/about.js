@@ -1,9 +1,12 @@
 $(document).ready(function(){
+
+    /* highlight menu items corresponding to about page */
 	$("#aboutMenuItem").addClass("menuItemSelected");
 	$("#aboutMenuItem").addClass("aboutSettings");
 	$("#aboutMenuItem img").css("display","inline");
 	$("#circleAbout").css("background-color","#576F94");
 
+    /* display image overlay on hover */
     $('.smallImg').hover(function() {
 	     $(this).css("visibility","hidden");
 	     var spanID = $(this).attr("id");
@@ -17,9 +20,7 @@ $(document).ready(function(){
 	});
 
 
-  var height = $(window).height();
-  //  $(".imgTint").css('height',height);
-//	$(".imgTint").css('width',width+30);
+
 
 	/*open picture with tint*/
 	$(".imgOverlay").click(function(e){
@@ -27,7 +28,7 @@ $(document).ready(function(){
 
 		var tint = "tinted_";
 		var newPictureId = tint.concat(pictureId);	/*id of div with tint*/
-		var scroll = $(window).scrollTop();			/*find scroll of page*/
+	//	var scroll = $(window).scrollTop();			/*find scroll of page*/
 		$("#"+newPictureId).css("display","block");
 		$("body").css("overflow-y","hidden");
 

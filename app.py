@@ -8,7 +8,6 @@ from flask import Flask, session                    # import Flask library from 
 app = Flask(__name__)
 
 
-
 # must import all views called in application
 from viewIndex import *
 from viewCode import *
@@ -17,7 +16,7 @@ from userLog import *
 from viewContact import *
 from viewAbout import *
 from viewSoftware import *
-
+from viewWelcome import*
 
 
 

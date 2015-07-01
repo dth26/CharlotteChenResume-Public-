@@ -1,8 +1,10 @@
 
 $(document).ready(function(){
+    /* hightlight appropriate menu items for layout page */
 	$("#artistMenuItem").addClass("menuItemSelected");
 	$("#artistMenuItem").addClass("artSettings");
 	$("#artistMenuItem img").css("display","inline");
+	$("#circleArt").css("background-color","#576F94");
 
 
 	var height = $(window).height();
@@ -15,11 +17,11 @@ $(document).ready(function(){
 		var pictureId = $(this).attr("id");
 		var tint = "tinted_";
 		var newPictureId = tint.concat(pictureId);	/*id of div with tint*/
-	//	$('#menu').css('z-index','-1');
 		$('#sideSelector').css('z-index','-1');
 	    $("#"+newPictureId).css('display','block');
-//		$("body").css("overflow-y","hidden");
 
+
+        /* set margins of image tint*/
         var margintop = $("#"+newPictureId + " img").height()/2;
         var marginleft = $("#"+newPictureId + " img").width()/2;
         $("#"+newPictureId + " img").css('margin-top', -margintop);
@@ -32,8 +34,6 @@ $(document).ready(function(){
 		$("#"+pictureId).css("display","none");
 	});
 
-
-	$("#circleArt").css("background-color","#576F94");
 
 
 

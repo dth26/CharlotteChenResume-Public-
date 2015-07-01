@@ -383,6 +383,7 @@ border-color: #505863;
 	margin-top: -20px;
 	height: 40px;
 	width: 40px;
+	z-index: 20000;
 }
 
 #sideSelector div:nth-child(1){
