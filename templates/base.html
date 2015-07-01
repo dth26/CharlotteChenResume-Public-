@@ -22,8 +22,9 @@
 	<body>
 		<div id="force">
 			<div id="menu">
+
 				<div id="Charlotte">
-					Charlotte Chen
+					<h1>Charlotte Chen</h1>
 				</div>
 				<div id="menuItemHolder">
 				  <a href="{{ url_for('index') }}" id="homeMenuItem">
@@ -66,7 +67,7 @@
 				<li><a title="About" href="{{ url_for('about') }}" id="circleAbout"></a></li>
 				<li><a title="Contact" href="{{ url_for('contact') }}" id="circleContact"></a></li>
 			</ul>
-			<div id="sideSelector">
+            	<div id="sideSelector">
 				<div id="loginItem" class="slideItem">
 					<form id="loginForm" action="{{ url_for("login") }}" method="post" name="login" autocomplete="off">
 						<img id="submitLogin" src="../static/images/icons/keyorange64.png"/>
