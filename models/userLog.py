@@ -1,7 +1,7 @@
 from app import app
 from flask import render_template, request, session, redirect, url_for
 from models import *
-
+from passlib.apps import custom_app_context as pwd_context
 
 
 basedir = "/home/pythonprogrammer/mysite/"
@@ -16,19 +16,21 @@ def login():
 	password = request.form.get('password')
 
 	#if request.method == 'POST':
-	user = Users.query.filter_by(firstName=name);
+	user = Users.query.filter_by(firstName=name)
 
-	if user.count() > 0 and user[0].password==password:
-		session['username'] = user[0].firstName
-		session['lastName'] = user[0].lastName
-		session['privileges'] = user[0].privileges
-		session['city'] = user[0].city
-		session['state'] = user[0].state
-		session['phone'] = user[0].phone
-		return render_template('index.html', user = session)
+	if user.count() > 0 and pwd_context.verify(password, user[0].hashedPassword):
+	    session['username'] = user[0].firstName
+	    session['lastName'] = user[0].lastName
+	    session['privileges'] = user[0].privileges
+	    session['city'] = user[0].city
+	    session['state'] = user[0].state
+	    session['phone'] = user[0].phone
+	    return render_template('index.html', user = session)
 	else:
-		session.pop('username', None)
-		return render_template('loginError.html', user = session)
+	    session.pop('username', None)
+	    return render_template('loginError.html', user = session)
+
+
 
 # logout and remove user privileges
 @app.route('/logout')
