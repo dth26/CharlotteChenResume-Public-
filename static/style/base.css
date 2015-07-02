@@ -30,8 +30,8 @@ h1{
     margin: 0px;
     top: 0px;
     width:250px;
-    border: 1px solid red;
     display: block;
+    font-weight: normal;
 }
 .centerLogin{
     position: absolute;
@@ -279,7 +279,7 @@ h1{
 	background-color: rgba(60,207, 197,.7);
 }
 #menuItemHolder a:nth-child(4):hover, .aboutSettings{
-    background-color: rgba(255,138, 8,.7);
+    background-color: rgba(255,138, 8,.9);
 }
 #menuItemHolder a:nth-child(5):hover, .contactSettings {
     background-color: rgba(5,255,55,.7);
