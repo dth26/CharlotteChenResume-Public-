@@ -45,7 +45,7 @@ $(document).ready(function(){
             }
         }
         else if(currentCenter == "five"){
-            var url = "www.meetcharlottechen.com";
+            var url = "http://www.meetcharlottechen.com";
  		    window.open(url, '_self' );
         }
     });

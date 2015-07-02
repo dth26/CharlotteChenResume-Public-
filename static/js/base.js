@@ -80,7 +80,7 @@ $(document).ready(function(){
 
      /* if user clicks sideSelector item #questionItem redirect to build page */
 	$('#questionItem').click(function(){
- 		var url = "http://pythonprogrammer.pythonanywhere.com/build/";
+ 		var url = "http://www.meetcharlottechen.com";
  		window.open(url, '_self' );
 	})
 
