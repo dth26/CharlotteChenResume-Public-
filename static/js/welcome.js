@@ -40,8 +40,7 @@ $(document).ready(function(){
             });
             $('#currentCenter').attr('value','five');
 
-
-            if( $('#user').val() !== 0){
+            if( $('#user').val() == 0){
                 $('#next').css('display','none');
             }
         }

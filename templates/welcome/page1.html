@@ -48,7 +48,7 @@
     	</div>
 
 		<div id="five" class="center">
-    	{% if user == 0 %}
+    	{% if user != 0 %}
                 <div class="blue">Login Created Already, Click Next!</div>
 		{% else %}
 		 <form  enctype="multipart/form-data" action="{{ url_for("createUser") }}" method="post" autocomplete="off">
