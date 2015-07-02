@@ -3,6 +3,7 @@
 <html>
 	<head>
 	    <meta name="viewport" content="width=1325px, maximum-scale=2.0" />
+
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/welcome.css') }}" media="screen" />
 		<link href='http://fonts.googleapis.com/css?family=Bangers|Satisfy|Roboto+Condensed' rel='stylesheet' type='text/css'>
 
@@ -16,6 +17,9 @@
 	</head>
 	<body>
 	    <input type="hidden" value="one" id="currentCenter">
+	    <input type="hidden" value="{{user}}" id="user">
+
+
 		<div id="one" class="center">
             <div class="red">Happy Birthday Charlotte!</div>
             <div class="blue">This is my gift to you.</div>
@@ -44,14 +48,9 @@
     	</div>
 
 		<div id="five" class="center">
-    	{% if user != 0 %}
+    	{% if user == 0 %}
                 <div class="blue">Login Created Already, Click Next!</div>
 		{% else %}
-		<script>
-		    $(document).ready(function(){
-		        $('#next').css('display','none');
-		    });
-		</script>
 		 <form  enctype="multipart/form-data" action="{{ url_for("createUser") }}" method="post" autocomplete="off">
 		    <table cellspacing="20px">
 		        <tr><td>Username:</td><td><input type="text" name="username"></td></tr>
@@ -60,7 +59,7 @@
 		        <tr><td>State:</td><td> <input type="text" name="state"></td></tr>
 		        <tr><td>Phone:</td><td> <input type="text" name="phone"></td></tr>
 		        <tr><td>Email:</td><td> <input type="text" name="email"></td></tr>
-		        <tr><td>Password:</td><td> <input type="text" name="password"></td></tr>
+		        <tr><td>Password:</td><td> <input type="password" name="password"></td></tr>
 		    </table>
 		     <input type="submit" value="Create Application"/>
 		   </form>

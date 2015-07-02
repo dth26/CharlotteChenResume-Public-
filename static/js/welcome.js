@@ -39,12 +39,40 @@ $(document).ready(function(){
                 });
             });
             $('#currentCenter').attr('value','five');
+
+
+            if( $('#user').val() !== 0){
+                $('#next').css('display','none');
+            }
         }
         else if(currentCenter == "five"){
-            var url = "http://pythonprogrammer.pythonanywhere.com/";
+            var url = "www.meetcharlottechen.com";
  		    window.open(url, '_self' );
         }
     });
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
