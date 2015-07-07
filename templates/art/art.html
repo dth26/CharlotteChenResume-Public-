@@ -9,55 +9,15 @@
 {% endblock%}
 
 {% block content %}
-<div id="centerContainer" class="centerContainerEdit">
-	<a href="{{ url_for('Layouts') }}">
-		<div class="block blockEdit">
-			<span class="heading">
-				Layout Design
-			</span>
-			<div class="circle"></div>
-			<span class="description">
-			Phasellus ac felis sed sapien vehicula egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-			</span>
-		</div>
-	</a>
-	<a href="{{ url_for('Graphics') }}">
-		<div class="block blockEdit">
-			<span class="heading">
-				Info Graphics
-			</span>
-			<div class="circle"></div>
-			<span class="description">
-			Duis interdum velit id viverra imperdiet. Phasellus quis interdum ante, quis elementum elit.
-			</span>
-		</div>
-	</a>
-	<a href="{{ url_for('Logos') }}">
-		<div class="block blockEdit">
-			<span class="heading">
-				Logo Design
-			</span>
-			<div class="circle"></div>
-			<span class="description">
-			Donec aliquam odio id eros scelerisque semper.
-			</span>
-		</div>
-	</a>
-	<a href="{{ url_for('Drawings') }}">
-		<div class="block blockEdit">
-			<span class="heading">
-				Drawing
-			</span>
-			<div class="circle"></div>
-			<span class="description">
-			Etiam pellentesque massa ut lorem ornare faucibus non sed enim.
-			</span>
-		</div>
-	</a>
-	<br/>
-    <span id="original">
-	    All work originally crafted by Charlotte Chen
-	</span>
+<div id="centerContainer" class="centerContainerWidth">
+	<a class="block blockAttributes" href="{{ url_for('Layouts') }}">Layout Design</a>
+    <a class="block blockAttributes" href="{{ url_for('Graphics') }}">Graphics Design</a>
+    <a class="block blockAttributes" href="{{ url_for('Logos') }}">Logo Design</a>
+    <a class="block blockAttributes" href="{{ url_for('Drawings') }}">Artwork</a>
+    <br/><br/>
+    <div class="block" id="original">
+    All work originally crafted by Charlotte Chen
+    </div>
 </div>
 
 {% endblock %}
