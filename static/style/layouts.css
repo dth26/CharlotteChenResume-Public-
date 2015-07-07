@@ -9,15 +9,8 @@
 }
 .outerHeaderMenu
 {
-	position: absolute;
 	height: 50px;
-	float: left;
-	background-color: rgba(255,255,255,0.3);
-	border: 1px solid #B4B8D4 ;
- 	top: 150px;
-    left: 50%;
-    margin-left: -440px;
-    z-index: -1 !important;
+    padding: 10px 0px 10px 0px;
 }
 .headerMenu
 {

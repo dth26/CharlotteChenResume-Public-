@@ -9,8 +9,9 @@
 {% endblock %}
 
 {% block content %}
+<div id="centerContainer" class="centerContainerWidth centerContainerEdit">
     <input type="hidden" id="subpage" value="{{subpage}}"/>
-	<div class="outerHeaderMenu blockAttributes centerContainerWidth">
+	<div class="block blockAttributes outerHeaderMenu">
 		<div class="headerMenu">
 			<a href="{{ url_for('Layouts')}}">
 				<div id="layouts" class="headerElement">Layouts</div>
@@ -27,23 +28,23 @@
 		</div>
 	</div>
 
-
-<!-- load images to display -->
-<div id="centerContainer" class="centerContainerWidth centerContainerEdit">
-	<div title="Edit Photos" class="openEditPane" id="editLayout"></div>
-	<div class="block blockAttributes blockAttributesEdit">
-	{% for photo in photos %}
-		<div id="{{photo.idName}}" class="imgBlock">
-			<div class="imgHolder">
-				<img src="../static/images{{ photo.path }}"/>
-			</div>
-			<div class="text">
-				<span class="heading">{{ photo.title }}</span><br/>
-				{{ photo.description }}
-			</div>
-		</div>
-	{% endfor %}
-	</div>
+    <!-- load images to display -->
+    <div class="block blockAttributes blockAttributesEdit">
+    	<div title="Edit Photos" class="openEditPane" id="editLayout"></div>
+     <!-- 	<div class="block blockAttributes blockAttributesEdit"> -->
+    	{% for photo in photos %}
+    		<div id="{{photo.idName}}" class="imgBlock">
+    			<div class="imgHolder">
+    				<img src="../static/images{{ photo.path }}"/>
+    			</div>
+    			<div class="text">
+    				<span class="heading">{{ photo.title }}</span><br/>
+    				{{ photo.description }}
+    			</div>
+    		</div>
+    	{% endfor %}
+    <!--	</div> -->
+    </div>
 </div>
 
 <!-- load tinted divs for each pic -->
