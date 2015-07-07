@@ -9,6 +9,7 @@
 {% endblock %}
 
 {% block content %}
+    <input type="hidden" id="subpage" value="{{subpage}}"/>
 	<div class="outerHeaderMenu blockAttributes centerContainerWidth">
 		<div class="headerMenu">
 			<a href="{{ url_for('Layouts')}}">
@@ -25,32 +26,6 @@
 			</a>
 		</div>
 	</div>
-<!-- highlight menu item that is selected -->
-{% if subpage == "Layouts" %}
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("#layouts").toggleClass("headerElementSelected");
-		});
-	</script>
-{% elif subpage == "Graphics" %}
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("#graphics").toggleClass("headerElementSelected");
-		});
-	</script>
-{% elif subpage == "Drawings" %}
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("#drawings").toggleClass("headerElementSelected");
-		});
-	</script>
-{% elif subpage == "Logos" %}
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("#logos").toggleClass("headerElementSelected");
-		});
-	</script>
-{% endif %}
 
 
 <!-- load images to display -->

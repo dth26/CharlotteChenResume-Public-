@@ -35,8 +35,25 @@ $(document).ready(function(){
 	});
 
 
+    var  subpage = $('#subpage').val().trim();
 
-
+     // highlight menu item that is selected
+    if(subpage == "Layouts")
+    {
+        	$("#layouts").toggleClass("headerElementSelected");
+    }
+    else if(subpage == "Graphics")
+    {
+        	$("#graphics").toggleClass("headerElementSelected");
+    }
+     else if(subpage == "Drawings")
+    {
+            $("#drawings").toggleClass("headerElementSelected");
+    }
+    else if(subpage == "Logos")
+    {
+        	$("#logos").toggleClass("headerElementSelected");
+    }
 
 });
 
