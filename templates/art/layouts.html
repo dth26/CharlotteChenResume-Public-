@@ -35,7 +35,7 @@
     	{% for photo in photos %}
     		<div id="{{photo.idName}}" class="imgBlock">
     			<div class="imgHolder">
-    				<img src="/home/pythonprogrammer/mysite/static/images{{ photo.path }}"/>
+    				<img src="../static/images{{ photo.path }}"/>
     			</div>
     			<div class="text">
     				<span class="heading">{{ photo.title }}</span><br/>
@@ -54,7 +54,7 @@
 			style="background-color:white;"
 		{% endif %}
 	class="imgTint">
-		<img src="/home/pythonprogrammer/mysite/static/images{{ photo.path }}" id="{{ photo.path }}id"/>
+		<img src="../static/images{{ photo.path }}" id="{{ photo.path }}id"/>
 		   <!-- set margin of image to center it -->
 		<script>
 		    alert({{ photo.path }}+"id");
