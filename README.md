@@ -1,5 +1,27 @@
 # CharlotteChenResume
 
+MODIFYING SITE
+===========================================================================================
+NOTE: make sure you cd to to right directory in bash  when pushing or pulling from git
+-   There are two sites; one for testing/modifying dev and one for final production
+-   All modifications should first be tested in dev website
+-   After modifications are tested and work properly in dev site
+        1)  push code from dev branch to master
+        2)  pull code from master to production site
+
+-   Dev
+        URL:        http://pythonprogrammer.pythonanywhere.com/index/
+        PATH:       /home/pythonprogrammer/dev
+        GIT BRANCH: dev
+-   Production
+        URL:        meetcharlottechen.com
+        PATH:       /home/pythonprogrammer/mysite
+        GIT BRANCH: origin
+
+
+FILES
+===========================================================================================
+
 app.py          - contains actual flask app that initiates program, the first module that is called.
 config.py       - connects flask app to sqlite3 database by declaring the path to the db_file.db file
 db_create.py    - creates the database in a file called db_file.db
@@ -17,28 +39,38 @@ static - contains files like javascript, stylesheets, and images
 Each page will have its own template, javascript, stylesheet, model, and view
 
 
-Querying Database through console
----------------------------------
+QUERYING DATABASE THROUGH BASH
+=============================================================================================
 Dashboard -> Consoles -> Bash
 1) cd to mysite path
 2) enter 'sqlite3 db_file.db'
 3) run sql queries
 
 
-Add git to local machine
------------------------------------
+CREATE NEW BRANCH ON GIT
+=============================================================================================
 1) git init
 2) git add README.md
 3) git commit -m "first commit"
 4) git remote add origin https://github.com/dth26/Weather-Map.git
 5) git push -u origin master
 
-Push modified code to master
-------------------------------------
+
+PUSH MODIFIED CODE TO MASTER
+=============================================================================================
 1) git add templates/base.html
 2) git commit -m "update base.html page"
 3) git push -u origin master
 
-Pull modified code from master
-----------------------------------
+
+PULL MODIFIED CODE FROM MASTER
+=============================================================================================
 1) git pull origin master
+
+
+
+Overwrite local branch with master
+-------------------------------
+1) git fetch --all
+2) git reset --hard origin/master
+
