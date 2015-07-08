@@ -34,7 +34,6 @@ $(document).ready(function(){
     var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
     /* implemented for devices that do not use touch and can sense hover */
     if(!supportsTouch){
-
         /* show sideSelector menuItem if hovered over */
     	$('.slideItem').mouseenter(function(){
     	    $(this).css('z-index','1002'); // make shadow of current slideItem overshadow that other slideItems
@@ -53,7 +52,7 @@ $(document).ready(function(){
 
     	$('.slideItem').click(function(){
     	    var marginleft = $(this).css('margin-left');
-
+             $(this).css('z-index','1002'); // make shadow of current slideItem overshadow that other slideItems
     	    if(marginleft == '-220px'){
     	        $(this).stop(true,true).animate({"margin-left": '+=220'});
     	    }else if(marginleft == '0px'){
@@ -62,32 +61,26 @@ $(document).ready(function(){
     	});
     }
 
+    /* open url when sideselector menu item is clicked */
+    $('.slideItem').click(function(){
+        var itemID = $(this).attr('id');
+        var items = {
+            'linkedItem'   : "https://www.linkedin.com/profile/view?id=289654202&authType=NAME_SEARCH&authToken=IZBw&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2Cidx%3A1-1-1%2CtarId%3A1434727653030%2Ctas%3Achar",
+            'resumeItem'   : "../static/files/resume.pdf",
+            'questionItem' : "http://www.meetcharlottechen.com/build"
+        };
 
-    /* if user clicks sideSelector item #linkedItem open linkedin profile on new page */
-	$('#linkedItem').click(function(){
- 		var url = "https://www.linkedin.com/profile/view?id=289654202&authType=NAME_SEARCH&authToken=IZBw&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2Cidx%3A1-1-1%2CtarId%3A1434727653030%2Ctas%3Achar";
- 		window.open(url, '_blank');
-
-	});
-
-
-    /* if user clicks sideSelector item #resumeItem open resume on new page */
-	$('#resumeItem').click(function(){
- 		var url = "../static/files/resume.pdf";
- 		window.open(url, '_blank');
-	})
-
-
-     /* if user clicks sideSelector item #questionItem redirect to build page */
-	$('#questionItem').click(function(){
- 		var url = "http://www.meetcharlottechen.com/build";
- 		window.open(url, '_self' );
-	})
-
+        var url = items[itemID];
+        var marginleft = $(this).css('margin-left');
+        /* only open up item onclick if sideselector item is fully expanded. for mobile platforms */
+        if(marginleft == '-220px')
+        {
+        	window.open(url, '_blank');
+        }
+    });
 
 
 });
-
 
 
 
