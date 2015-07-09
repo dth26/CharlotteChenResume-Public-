@@ -5,6 +5,10 @@ var height = $(window).height();
 
 $(document).ready(function(){
 
+    /* set left of centerContainer*/
+    var left = width/2 + 'px';
+    $('#centerContainer').css('left',left);
+
     /* if user click login key submit form to userLog.py script */
 	$('#submitLogin').click(function(){
 		//alert({{ url_for("login") }});
