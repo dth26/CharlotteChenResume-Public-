@@ -121,6 +121,7 @@
 	top: 0px;
 	background-color: rgba(50,45,51,0.8);
 	display: none;
+	height: 100%;
 	z-index: 50000 !important;
 }
 .imgTintSelected
