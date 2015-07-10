@@ -2,9 +2,10 @@
 
 MODIFYING SITE
 ===========================================================================================
-NOTE: make sure you cd to to right directory in bash  when pushing or pulling from git
+NOTE: make sure you cd to to right directory (dev or mysite) in bash  when pushing or pulling from git
 -   There are two sites; one for testing/modifying dev and one for final production
 -   All modifications should first be tested in dev website
+        1)  before modifying dev set pull from master or else repository will be behind
 -   After modifications are tested and work properly in dev site
         1)  push code from dev branch to master
         2)  pull code from master to production site
