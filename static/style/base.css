@@ -254,7 +254,9 @@ h1{
 #menuItemHolder a {
 	text-decoration: none;
 	color: #8A93FF;
-	font-size:20px;
+	font-size:25px;
+	letter-spacing: 1px;
+	font-weight: 400 !important;
 	width:140px;
 	display: block;
 	float: left;
@@ -392,6 +394,7 @@ border-color: #505863;
 	height: 40px;
 	width: 40px;
 	z-index: 20000;
+	display: block;
 }
 
 #sideSelector div:nth-child(1){
