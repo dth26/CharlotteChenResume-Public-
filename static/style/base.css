@@ -253,7 +253,8 @@ h1{
 }
 #menuItemHolder a {
 	text-decoration: none;
-	color: #8A93FF;
+	color:#E3DEDE;
+	color: #D6BABA;
 	font-size:22px;
 	letter-spacing: 1px;
 	font-weight: 400 !important;
@@ -271,19 +272,19 @@ h1{
 }
 
 #menuItemHolder a:nth-child(1):hover, .homeSettings {
-	background-color: rgba(255,30,30,.9);
+	background-color: #ED5858;
 }
 #menuItemHolder a:nth-child(2):hover, .developerSettings {
-	background-color: rgba(124,60,207,.9);
+	background-color: #9173FF;
 }
 #menuItemHolder a:nth-child(3):hover, .artSettings{
-	background-color: rgba(60,207, 197,.7);
+	background-color: #59C8FF;
 }
 #menuItemHolder a:nth-child(4):hover, .aboutSettings{
-    background-color: rgba(255,138, 8,.9);
+    background-color: #FFAF54;
 }
 #menuItemHolder a:nth-child(5):hover, .contactSettings {
-    background-color: rgba(5,255,55,.7);
+    background-color: #54FF7C;
 }
 #menuItemHolder a:nth-child(5) {
     border-width: 0px 1px 0px 1px;
@@ -376,9 +377,9 @@ border-color: #505863;
 #sideSelector div{
 	height: 70px;
 	width: 410px;
-	position: absolute;
+    position: relative;
 	cursor: pointer;
-	margin: 0px;
+	margin: 3px 0px 3px 0px;
 	font-size: 20px;
 	border: 1px solid  rgba(57,56,77,.7);
 	-webkit-box-shadow: -2px 0px 5px 3px rgba(181,181,181,1);
@@ -394,32 +395,28 @@ border-color: #505863;
 	height: 40px;
 	width: 40px;
 	z-index: 20000;
-	display: block;
+	display: inline-block;
 }
 
 #sideSelector div:nth-child(1){
-	top: 0px;
 	background-color: rgba(0,22,92,.8);
+	border-top-left-radius: 8px;
 }
 #sideSelector div:nth-child(2){
-	top: 73px;
 	background-color: rgba(0,22,92,.7);
 }
 #sideSelector div:nth-child(3){
-	top: 146px;
 	background-color: rgba(0,22,92,.6);
 }
 #sideSelector div:nth-child(4){
-	top: 219px;
 	background-color: rgba(0,22,92,.5);
 }
 #sideSelector div:nth-child(5){
-	top: 292px;
 	background-color: rgba(0,22,92,.4);
 }
 #sideSelector div:nth-child(6){
-	top: 365px;
 	background-color: rgba(0,22,92,.3);
+	border-bottom-left-radius: 8px;
 }
 
 
@@ -442,6 +439,7 @@ border-color: #505863;
     -moz-transform: translate(0px,-50%);
     -o-transform: translate(0px,-50%);
     -ms-transform: translate(0px,-50%);
+    display: inline-block;
 }
 #sideSelector div span input{
 	margin-bottom: 5px;
