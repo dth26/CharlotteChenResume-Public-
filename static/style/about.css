@@ -23,7 +23,7 @@
 	width: 100%;
 	height: auto;
 	font-size: 35px;
-	color:#3F4559;
+	color: #707694;
 	font-family: 'Bangers', cursive !important;
 }
 .imgOverlay {
@@ -165,7 +165,9 @@
 {
 		overflow: hidden;
 	max-height: 100%;
+	height: 100%;
 	margin-right: 20px;
 	margin-bottom: 5px;
 	padding: 0px;
 }
+

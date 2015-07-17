@@ -25,7 +25,6 @@
 			<div class="block blockAttributes">
 				{% for img in imagesLikes %}
 				<figure id="{{ img.idName }}" class="imgOverlay">
-					<span class="overlayText">{{img.description}}</span>
 					<img class="small" src="../static/images/about/{{img.path}}"/>
 				</figure>
 				{% endfor %}
@@ -52,7 +51,6 @@
 				 <div class="blockElement">
 					{% for img in imagesTravel %}
 					<figure id="{{ img.idName }}" class="imgOverlay">
-						<span class="overlayText">{{img.description}}</span>
 						<img class="small" src="../static/images/about/{{img.path}}"/>
 					</figure>
 					{% endfor %}
@@ -64,7 +62,6 @@
 			 	<div class="blockElement">
 					{% for img in imagesFashion %}
 					<figure id="{{ img.idName }}" class="imgOverlay">
-						<span class="overlayText">{{img.description}}</span>
 						<img class="small" src="../static/images/about/{{img.path}}"/>
 					</figure>
 					{% endfor %}
@@ -76,7 +73,6 @@
 				<div class="blockElement">
 					{% for img in imagesDrawings %}
 					<figure id="{{ img.idName }}" class="imgOverlay">
-						<span class="overlayText">{{img.description}}</span>
 						<img class="small" src="../static/images/about/{{img.path}}"/>
 					</figure>
 					{% endfor %}
@@ -86,8 +82,8 @@
 
 		{% for photo in photos %}
 			<div id="tinted_{{photo.idName}}" class="imgTint">
-				<img  class="imageText" style="float:left;" src="../static/images/about/{{ photo.path }}"/>
-				<span>{{photo.description}}</span>
+				    <img  class="imageText" style="float:left;" src="../static/images/about/{{ photo.path }}"/>
+				    <span>{{photo.description}}</span>
 			</div>
 		{% endfor %}
 

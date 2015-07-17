@@ -461,3 +461,115 @@ border-color: #505863;
    margin-left: -20px !important;
 }
 
+
+
+#menuRight{
+    position: fixed;
+    height: 440px;
+    width: 50px;
+    top: 50%;
+	left: 97%;
+    margin-right: -97%;
+    transform: translate(-97%, -50%);
+     -webkit-transform:  translate(-90%, -50%);
+    -moz-transform: translate(-97%, -50%);
+    -o-transform:  translate(-97%, -50%);
+    -ms-transform:  translate(-97%, -50%);
+    z-index: 1000 !important;
+	overflow: hidden;
+}
+#menuRight div{
+	height: 70px;
+	width: 310px;
+    position: relative;
+	cursor: pointer;
+	/*margin: 3px 0px 3px 0px;*/
+	font-size: 20px;
+	z-index: 1001;
+}
+#menuRight div:nth-child(1){
+    background-color: #6572BF;
+}
+#menuRight div:nth-child(2){
+    background-color: #5F9BCF;
+}
+#menuRight div:nth-child(3){
+    background-color: #3B4F8F;
+}
+#menuRight div:nth-child(4){
+    background-color: #DE4949;
+}
+#menuRight div:nth-child(5){
+    background-color: #FA5555;
+}
+#menuRight div:nth-child(6){
+    background-color: #AD63C2;
+}
+#menuRight div span{
+	position:absolute;
+	height: auto;
+	width: auto;
+	margin: 0px;
+	padding: 0px;
+	color: white;
+	display: block;
+	float: left;
+	top: 50%;
+	left: 75px;
+	margin-right: -0%;
+	-webkit-transform: translate(0px,-50%);
+    -moz-transform: translate(0px,-50%);
+    -o-transform: translate(0px,-50%);
+    -ms-transform: translate(0px,-50%);
+    display: inline-block;
+}
+#menuRight div span input{
+	margin-bottom: 5px;
+	padding: 0px;
+	background-color: #C3C1C7;
+	-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+	width: 150px;
+	height: 25px;
+	border: 1px solid blue;
+}
+.boxShadow{
+    -webkit-box-shadow: -2px 0px 5px 3px rgba(181,181,181,1);
+	-moz-box-shadow: -2px 0px 5px 3px rgba(181,181,181,1);
+	box-shadow: -2px 0px 5px 3px rgba(181,181,181,1);
+}
+#menuRight div img{
+    width: 35px;
+    height: 35px;
+    margin-left: 8px;
+    margin-top: 15px;
+}
+#menuRightCover{
+     position: fixed;
+    height: 450px;
+    width: 35px;
+    background-color: black;
+    top: 50%;
+	left: 100%;
+    margin-right: -100%;
+    z-index: 10000;
+    transform: translate(-100%, -50%);
+     -webkit-transform:  translate(-100%, -50%);
+    -moz-transform: translate(-100%, -50%);
+    -o-transform:  translate(-100%, -50%);
+    -ms-transform:  translate(-100%, -50%);
+    background-image: url("../images/lghtmesh.png");
+}
+#menuRightCoverOverlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    left: 0px;
+    top: 0px;
+     height: 450px;
+    width: 35px;
+    background-color: rgba(222,62,62,0.1);
+
+}

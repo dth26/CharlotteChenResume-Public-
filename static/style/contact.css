@@ -19,6 +19,9 @@ td:nth-child(1)
 {
 	vertical-align: top;
 }
+td:nth-child(2){
+    color: #899ECF;
+}
 .blockAttributesEdit{
 	padding: 0px !important;
 }

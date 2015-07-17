@@ -11,8 +11,13 @@ $(document).ready(function(){
 
     /* if user click login key submit form to userLog.py script */
 	$('#submitLogin').click(function(){
-		//alert({{ url_for("login") }});
-		$('#loginForm').submit();
+		var marginleft = $('#loginItem').css('margin-left');
+
+        /* only open up item onclick if sideselector item is fully expanded. for mobile platforms */
+        if(marginleft == '-240px')
+        {
+        	$('#loginForm').submit();
+        }
 	});
 
 
@@ -37,47 +42,93 @@ $(document).ready(function(){
     /* check if device supports touch */
     var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
     /* implemented for devices that do not use touch and can sense hover */
-    if(!supportsTouch){
-        /* show sideSelector menuItem if hovered over */
-    	$('.slideItem').mouseenter(function(){
-    	    $(this).css('z-index','1002'); // make shadow of current slideItem overshadow that other slideItems
-    		$(this).stop(true,true).animate({"margin-left": '-=220'});
-    	}).mouseleave(function(){
-    	    $(this).stop(true,true).animate({"margin-left": '+=220'});
-    	});
-    }
+    // if(!supportsTouch){
+    //     /* show sideSelector menuItem if hovered over */
+    // 	$('.slideItem').mouseenter(function(){
+    // 	    $('#menuRight').css('overflow','visible');
+    // 	    $(this).addClass('boxShadow');
+    // 	    $(this).css('z-index','1002'); // make shadow of current slideItem overshadow that other slideItems
+    // 		$(this).stop(true,true).animate({"margin-left": '-=240'});
+    // 	}).mouseleave(function(){
+    // 	    $(this).stop(true,true).animate({"margin-left": '+=240'}, function(){
+    // 	        // when animation is done exectue this
+    // 	        $('#menuRight').css('overflow','hidden');
+    // 	        $(this).removeClass('boxShadow');
+    // 	    });
+    // 	});
+    // }
 
     /* implemented for tablet/mobile devices that cannot detect hover */
-    if(supportsTouch && supportsTouch != undefined){
-
+    if(/*supportsTouch && supportsTouch != undefined*/ true){
+        /*
         window.setInterval(function(){
-            onZoom();
+           onZoom();
         }, 3);
+        */
 
+        var animated = 0;
     	$('.slideItem').click(function(){
+
+    	    if(animated == 1 ){
+                return;
+            }else{
+                animated = 1;
+            }
+
     	    var marginleft = $(this).css('margin-left');
-             $(this).css('z-index','1002'); // make shadow of current slideItem overshadow that other slideItems
-    	    if(marginleft == '-220px'){
-    	        $(this).stop(true,true).animate({"margin-left": '+=220'});
+    	    var slideItemId = '#' + $(this).attr('id');
+
+    	    if(marginleft == '-240px'){
+                closeRightMenuItem(slideItemId);
     	    }else if(marginleft == '0px'){
-    	        $(this).stop(true,true).animate({"margin-left": '-=220'});
+    	        $('.slideItem').each(function(){
+    	             var currID = '#' + $(this).attr('id');
+    	             var currMargin = $(this).css('margin-left');
+    	             if(currMargin != '0px' ){
+    	                 closeRightMenuItem(currID);
+    	             }
+    	        });
+    	        setTimeout(function(){
+    	            openRightMenuItem(slideItemId);
+    	        },500);
     	    }
     	});
+
+    }
+    /* expands right menu item to left */
+    function openRightMenuItem(id){
+         $('#menuRight').css('overflow','visible');
+    	 $(id).addClass('boxShadow');
+    	 $(id).stop(true,true).animate({"margin-left": '-=240'}, function(){
+    	     animated = 0;
+    	 });
+    }
+    /* unexpands right menu item to right */
+    function closeRightMenuItem(id){
+        $(id).stop(true,true).animate({"margin-left": '+=240'},function(){
+            $('#menuRight').css('overflow','hidden');
+            $(id).removeClass('boxShadow');
+            animated = 0;
+        });
     }
 
     /* open url when sideselector menu item is clicked */
-    $('.slideItem').click(function(){
+    $('.rightMenuItemImg').click(function(){
         var itemID = $(this).attr('id');
+
         var items = {
-            'linkedItem'   : "https://www.linkedin.com/profile/view?id=289654202&authType=NAME_SEARCH&authToken=IZBw&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2Cidx%3A1-1-1%2CtarId%3A1434727653030%2Ctas%3Achar",
-            'resumeItem'   : "../static/files/resume.pdf",
-            'questionItem' : "http://www.meetcharlottechen.com/build"
+            'linkedItemImg'   : "https://www.linkedin.com/profile/view?id=289654202&authType=NAME_SEARCH&authToken=IZBw&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2Cidx%3A1-1-1%2CtarId%3A1434727653030%2Ctas%3Achar",
+            'resumeItemImg'   : "../static/files/resume.pdf",
+            'questionItemImg' : "http://www.meetcharlottechen.com/build"
         };
 
         var url = items[itemID];
-        var marginleft = $(this).css('margin-left');
+        // get id of parent div menu item
+        var divItem = '#' + itemID.substring(0, itemID.length-3);
+        var marginleft = $(divItem).css('margin-left');
+
         /* only open up item onclick if sideselector item is fully expanded. for mobile platforms */
-        if(marginleft == '-220px')
+        if(marginleft == '-240px')
         {
         	window.open(url, '_blank');
         }
