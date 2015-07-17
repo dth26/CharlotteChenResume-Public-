@@ -13,7 +13,7 @@ from modelsCode import *
 from modelsArt import *
 from modelsAbout import *
 
-basedir = "/home/pythonprogrammer/mysite/"
+basedir = "/home/pythonprogrammer/mysite"
 
 
 

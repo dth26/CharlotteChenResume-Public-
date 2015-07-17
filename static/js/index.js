@@ -15,15 +15,24 @@ $(document).ready(function(){
 });
 
 
+/* set position of image on index page, ensures image does not overlap menu */
+function setImageHeight(){
+        var menuHeight = $('#menu').height();
+    	var docHeight = $(document).height() ;
+    	var imageMarginTop = menuHeight+"px";
+		$('#image').css('top',imageMarginTop);
+        $('#image').css('height',docHeight + 'px');
+}
 
 
 /* very last function called after document loads*/
-/* set position of image on index page, ensures image does not overlap menu */
 (function($) {
     $(window).bind("load", function() {
-    	var docHeight = $(document).height() + 'px';
-    	var imageMarginTop = menuHeight+"px";
-		$('#image').css('height',docHeight);
-		$('#image').css('top',imageMarginTop);
+        setImageHeight();
     });
 })(jQuery);
+
+/* change height of picture if orientation changes */
+window.onorientationchange = function(){
+    setImageHeight();
+};
