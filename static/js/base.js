@@ -2,8 +2,11 @@
 
 var width = $(window).width();
 var height = $(window).height();
+/* check if device supports touch */
+var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 
 $(document).ready(function(){
+
 
     /* set left of centerContainer*/
     var left = width/2 + 'px';
@@ -39,8 +42,7 @@ $(document).ready(function(){
 	});
 
 
-    /* check if device supports touch */
-    var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+
     /* implemented for devices that do not use touch and can sense hover */
     // if(!supportsTouch){
     //     /* show sideSelector menuItem if hovered over */
@@ -58,13 +60,8 @@ $(document).ready(function(){
     // 	});
     // }
 
-    /* implemented for tablet/mobile devices that cannot detect hover */
-    if(/*supportsTouch && supportsTouch != undefined*/ true){
-        /*
-        window.setInterval(function(){
-           onZoom();
-        }, 3);
-        */
+
+    if(true){
 
         var animated = 0;
     	$('.slideItem').click(function(){
@@ -135,6 +132,16 @@ $(document).ready(function(){
     });
 
 
+    /*
+        if device supports touch that means the device is probably a phone.
+        if user zooms in hide right menu bar
+    */
+    if(supportsTouch && supportsTouch != undefined)
+    {
+        window.setInterval(function(){
+           onZoom();
+        }, 3);
+    }
 });
 
 
@@ -179,9 +186,9 @@ function onZoom(){
     var zoom = (document.width / window.innerWidth);
     	/* for mobile to detect zoom, if ratio greater than 1 then mobile is zoomed */
 	if(zoom > 1.5){
-        $('#sideSelector').fadeOut(1000);
+        $('#menuRight').fadeOut(1000);
 	}else{
-	    $('#sideSelector').css('display','block');
+	    $('#menuRight').css('display','block');
 	}
 }
 

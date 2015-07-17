@@ -9,7 +9,6 @@ $(document).ready(function(){
 
 	var height = $(window).height();
 	var width = $(window).width();
-	$(".imgTint").css('height',height);
 	$(".imgTint").css('width',width+30);
 
 	/*open picture with tint*/
