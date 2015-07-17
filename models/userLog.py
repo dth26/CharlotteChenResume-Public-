@@ -18,7 +18,7 @@ def login():
 	#if request.method == 'POST':
 	user = Users.query.filter_by(firstName=name)
 
-	if user.count() > 0 and pwd_context.verify(password, user[0].hashedPassword):
+	if user.count() > 0 and pwd_context.verify(password, user[0].password):
 	    session['username'] = user[0].firstName
 	    session['lastName'] = user[0].lastName
 	    session['privileges'] = user[0].privileges
