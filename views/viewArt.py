@@ -7,7 +7,8 @@ from modelsArt import *
 @app.route('/art/')
 @app.route('/art')
 def art():
-	return render_template('art/art.html', subpage = "ArtMain", user = session);
+    photos = getPhotos("Layouts")
+    return render_template('art/layouts.html', photos=photos, subpage='Layouts', user=session);
 
 @app.route('/art/layouts/')
 @app.route('/art/layouts')
