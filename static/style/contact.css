@@ -31,10 +31,10 @@ td:nth-child(2){
 	  font-size: 22px;
 	  font-family: 'Roboto Condensed', sans-serif;
 }
-.centerContainerEdit{
-	width: 980px !important;
-	margin-left: -520px !important;
-}
+/*.centerContainerEdit{*/
+/*	width: 980px !important;*/
+/*	margin-left: -520px !important;*/
+/*}*/
 
 input[type="text"]
 {
