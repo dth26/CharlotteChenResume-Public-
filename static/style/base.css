@@ -300,7 +300,7 @@ h1{
     background-color: #FFAF54;
 }
 #menuItemHolder a:nth-child(5):hover, .contactSettings {
-    background-color: #54FF7C;
+    background-color: #6EF0BA;
 }
 #menuItemHolder a:nth-child(5) {
     border-width: 0px 1px 0px 1px;
@@ -337,13 +337,13 @@ border-color: #505863;
 .user
 {
 	position: absolute;
-	left: 98%;
+	left: 96%;
 	margin-right: -50%;
-	transform: translate(-98%,-0%);
-	     -webkit-transform:  translate(-98%,-0%);
-    -moz-transform: translate(-98%,-0%);
-    -o-transform:  translate(-98%,-0%);
-    -ms-transform:  translate(-98%,-0%);
+	transform: translate(-96%,-0%);
+	     -webkit-transform:  translate(-96%,-0%);
+    -moz-transform: translate(-96%,-0%);
+    -o-transform:  translate(-96%,-0%);
+    -ms-transform:  translate(-96%,-0%);
     font-size: 15px;
     width: 220px;
     height: 100%;
