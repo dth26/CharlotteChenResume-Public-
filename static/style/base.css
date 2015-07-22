@@ -110,7 +110,6 @@ h1{
 #Charlotte
 {
 	position: absolute;
-	color: #ED5A5A;
 	color: #F76A6A;
 	text-align: center;
 	padding: 0px;
@@ -123,6 +122,9 @@ h1{
     display: block;
     top: 0px;
 }
+
+
+
 .circleMenu
 {
 	position: fixed;
@@ -256,13 +258,14 @@ h1{
 	border-width: 0px 0px 3px 0px;
 	border-style: solid;
 	z-index: 1000;
+	left: 0px;
 }
 #menuItemHolder {
 	position: absolute;
 	width: 700px;
 	margin: 0px;
 	padding: 0px;
-	left: 50%;
+	/*left: 50%;*/
 	top: 0%;
 	margin-left: -350px;
 	/*transform: translate(-50%,-0%);*/
