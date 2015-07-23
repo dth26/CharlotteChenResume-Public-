@@ -45,6 +45,18 @@ $(document).ready(function(){
             }
         }
         else if(currentCenter == "five"){
+             $('#five').fadeOut(1000, function(){
+                $('#six').fadeIn(1500, function(){
+                    animated = 0;
+                });
+            });
+            $('#currentCenter').attr('value','six');
+
+            if( $('#user').val() == 0){
+                $('#next').css('display','none');
+            }
+        }
+        else if(currentCenter == "six"){
             var url = "http://www.meetcharlottechen.com";
  		    window.open(url, '_self' );
         }
