@@ -6,19 +6,6 @@ $(document).ready(function(){
 	$("#aboutMenuItem img").css("display","inline");
 	$("#circleAbout").css("background-color","#576F94");
 
-    /* display image overlay on hover */
-    $('.smallImg').hover(function() {
-	     $(this).css("visibility","hidden");
-	     var spanID = $(this).attr("id");
-	     $("#"+spanID+"Span").css("display", "block");
-
-	},function() {
-		   sleep(500);
-		  $(this).css("visibility","visible");
-		  var spanID = $(this).attr("id");
-		  $("#"+spanID+"Span").css("display", "none");
-	});
-
 
 
 
