@@ -12,8 +12,8 @@
 {% block content %}
 <div id="centerContainer" class="centerContainerWidth">
 	<div class="block blockAttributes font" style="height: 250px;">
-		<img style="top: 30px; =left: 30px;" id="headerImg" src="../static/images/charlotte.jpg"/>
-		<div style="left: 300px;" class="headerInfo">
+		<img id="headerImg" src="../static/images/charlotte.jpg"/>
+		<div class="headerInfo">
 			<span class="heading">Home</span><br/>
 			<span class="section_text">{{ userData[0].city }}, {{ userData[0].state }}</span><br/><br/>
 			<span class="heading">Phone</span><br/>
@@ -21,7 +21,7 @@
 			<span class="heading">Email</span><br/>
 			<span class="section_text">{{ userData[0].email }}</span><br/><br/>
 		</div>
-		<div style="left: 480px;" class="headerInfo">
+		<div style="" class="headerInfo">
 			<span class="heading">School</span><br/>
 			<span class="section_text">{{ schools[0].school }}</span><br/><br/>
 			<span class="heading">Major</span><br/>
@@ -29,8 +29,7 @@
 				<span class="section_text">{{ major.major }}</span><br/>
 			{% endfor %}
 		</div>
-
-		<div style="left: 650px; border-right: 0px; top: 80px;" class="headerInfo">
+		<div style="border-right: 0px;" class="headerInfo">
 			<img src="../static/images/icons/linkedin.png"/>
 			<a target="blank" href="https://www.linkedin.com/profile/view?id=289654202&authType=NAME_SEARCH&authToken=IZBw&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2Cidx%3A1-1-1%2CtarId%3A1430975696920%2Ctas%3Acharlotte">
 				<span class="link">LinkedIn</span><br/><br/>

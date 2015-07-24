@@ -48,28 +48,28 @@ td:nth-child(2)
 }
 #headerImg
 {
-	position: absolute;
+    float: left;
 	border: 2px solid #C8E3DD;
 	width: 250px;
 	height: 180px;
-	display:block;
+	display: inline-block;
 }
 .headerInfo
 {
-	position: absolute;
-	top: 30px;
-	height: 180px;
-	width: 150px;
+	height: auto;
+	width: auto;
 	border-right: 1px solid #D1D3E3;
 	float: left;
-	display: block;
+	display: inline-block;
+	margin-left: 35px;
+	padding-right: 45px;
 }
 .headerInfo img
 {
 	height: 30px;
 	width: 30px;
 	border: 0px;
-	display: block;
+	display: inline-block;
 	float: left;
 }
 
@@ -100,16 +100,16 @@ td:nth-child(2)
 .heading
 {
 	color: #25262E;
-/*	border-bottom: 1px dotted #A7ABC4;	*/
 	font-size: 20px;
 	font-weight: bold;
 }
 .link
 {
-	position: absolute;
+
 	padding-left: 10px;
 	padding-top: 0px;
-	left: 30px;
+    	display: inline-block;
+	float: left;
 	color: #4E5480;
 	font-size: 20px;
 }
