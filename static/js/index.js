@@ -12,6 +12,10 @@ $(document).ready(function(){
 
     /* remove extra overflow on mobile platforms*/
 	$('#force').css('overflow','hidden');
+
+	 window.addEventListener('orientationchange',  setImageHeight);
+	 window.addEventListener('resize',  setImageHeight);
+
 });
 
 
@@ -32,7 +36,4 @@ function setImageHeight(){
     });
 })(jQuery);
 
-/* change height of picture if orientation changes */
-window.onorientationchange = function(){
-    setImageHeight();
-};
+

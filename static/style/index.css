@@ -7,14 +7,15 @@
 	   	font-family: 'Bangers', cursive;
 	   	color: #C4A5B9;
 	   	list-style: none;
-	   	left: 13%;
+	   	left: 14%;
 		top: 50%;
-		-webkit-transform: translate(-13%,-50%);
-        -moz-transform: translate(-13%,-50%);
-        -o-transform: translate(-13%,-50%);
-        -ms-transform: translate(-13%,-50%);
+		-webkit-transform: translate(-14%,-50%);
+        -moz-transform: translate(-14%,-50%);
+        -o-transform: translate(-14%,-50%);
+        -ms-transform: translate(-14%,-50%);
 		z-index: -1;
 		padding: 0px;
+
 	}
 	#charlotte
 	{
@@ -33,10 +34,7 @@
 	}
     #image{
     	position: absolute;
-  /*  	min-width: 517px;*/
-		/*min-height: 760px;*/
-		display: block;
-		left:48%;
+		left:49%;
 		z-index: -1!important;
 	}
 
