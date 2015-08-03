@@ -9,6 +9,13 @@ var animated = 0;
 
 $(document).ready(function(){
 
+
+    $('#menu').show();
+    $('#menuSmall').hide();
+
+
+    window.addEventListener("scroll", scroll);
+
     /* set left of centerContainer*/
     var left = width/2 + 'px';
     $('#centerContainer').css('left',left);
@@ -205,6 +212,16 @@ function onZoom(){
 }
 
 
+
+var scroll = function() {
+    if($(window).scrollTop() > 150){
+        $('#menu').hide();
+        $('#menuSmall').show();
+    }else{
+        $('#menu').show();
+        $('#menuSmall').hide();
+    }
+};
 
 
 

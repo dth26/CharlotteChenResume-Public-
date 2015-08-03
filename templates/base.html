@@ -21,16 +21,44 @@
 	</head>
 	<body>
 		<div id="force">
-		    <div class="corner-ribbon top-left blue shadow">
-		        Charlotte Chen
-			</div>
-			<div id="menu">
-                <!--
-		        <div id="Charlotte">
-					<h1>Charlotte Chen</h1>
+		 <!--   <div class="corner-ribbon top-left shadow">-->
+		 <!--       Charlotte Chen-->
+			<!--</div>-->
+			<div id="menuSmall">
+				<div id="menuSmallItemHolder">
+				  <a href="{{ url_for('index') }}">
+				    <img src="../static/images/icons/smallHome32.png"/>
+				  </a>
+				  <a href="{{ url_for('code') }}">
+				    <img src="../static/images/icons/smallCode32.png"/>
+				  </a>
+				  <a href="{{ url_for('art') }}">
+				    <img src="../static/images/icons/smallArt32.png"/>
+				  </a>
+				  <a href="{{ url_for('about') }}">
+				    <img src="../static/images/icons/smallAbout32.png"/>
+				  </a>
+				  <a href="{{ url_for('contact') }}">
+				    <img src="../static/images/icons/smallContact32.png"/>
+				  </a>
 				</div>
-				-->
+				<div class="user">
+					{% if user.username %}
+						<span >Logged in as {{ user.username}} {{ user.lastName}}</span>
+						<a href="{{ url_for('logout') }}">logout</a>
+						<script>
+							$(document).ready(function(){
+								$('.openEditPane').css('display','block');
+							});
+						</script>
+					{% endif %}
+				</div>
+			</div>
 
+			<div id="menu">
+    	        <div id="Charlotte">
+    				<h1>Charlotte Chen</h1>
+    			</div>
 				<div id="menuItemHolder">
 				  <a href="{{ url_for('index') }}" id="homeMenuItem">
 				    <img src="../static/images/icons/star.png"/>
