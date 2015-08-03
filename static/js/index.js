@@ -7,7 +7,7 @@ $(document).ready(function(){
     /* highlight appropriate menu items for index page */
 	$("#homeMenuItem").addClass("menuItemSelected");
 	$("#homeMenuItem").addClass("homeSettings");
-	$("#circleIndex").css("background-color","#576F94");
+	$("#circleIndex").css("background-color","rgba(57,56,77,.7)");
 	$("#homeMenuItem img").css("display","inline");
 
     /* remove extra overflow on mobile platforms*/

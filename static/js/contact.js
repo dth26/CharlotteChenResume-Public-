@@ -4,7 +4,7 @@ $(document).ready(function(){
 	$("#contactMenuItem").addClass("menuItemSelected");
 	$("#contactMenuItem").addClass("contactSettings");
 	$("#contactMenuItem img").css("display","inline");
-	$("#circleContact").css("background-color","#576F94");
+	$("#circleContact").css("background-color","rgba(57,56,77,.7)");
 });
 
 

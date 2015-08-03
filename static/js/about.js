@@ -4,7 +4,7 @@ $(document).ready(function(){
 	$("#aboutMenuItem").addClass("menuItemSelected");
 	$("#aboutMenuItem").addClass("aboutSettings");
 	$("#aboutMenuItem img").css("display","inline");
-	$("#circleAbout").css("background-color","#576F94");
+	$("#circleAbout").css("background-color","rgba(57,56,77,.7)");
 
 
 

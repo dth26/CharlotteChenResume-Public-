@@ -3,7 +3,7 @@ $(document).ready(function(){
 	$("#developerMenuItem").addClass("menuItemSelected");
 	$("#developerMenuItem").addClass("developerSettings");
 	$("#developerMenuItem img").css("display","inline");
-    $("#circleCode").css("background-color","#576F94");
+    $("#circleCode").css("background-color","rgba(57,56,77,.7)");
 
 
 	$("#cssmenu > ul > li > a").click(function(){
