@@ -214,7 +214,7 @@ function onZoom(){
 
 
 var scroll = function() {
-    if($(window).scrollTop() > 150){
+    if($(window).scrollTop() > 80){
         $('#menu').hide();
         $('#menuSmall').show();
     }else{
