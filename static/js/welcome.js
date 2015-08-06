@@ -39,10 +39,6 @@ $(document).ready(function(){
                 });
             });
             $('#currentCenter').attr('value','five');
-
-            if( $('#user').val() == 0){
-                $('#next').css('display','none');
-            }
         }
         else if(currentCenter == "five"){
              $('#five').fadeOut(1000, function(){
