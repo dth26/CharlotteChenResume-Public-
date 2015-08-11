@@ -13,6 +13,7 @@
 <div id="centerContainer" class="centerContainerWidth">
 	<div class="block blockAttributes font" style="height: 250px;">
 		<img id="headerImg" src="../static/images/charlotte.jpg"/>
+		{% if userData[0] is defined %}
 		<div class="headerInfo">
 			<span class="heading">Home</span><br/>
 			<span class="section_text">{{ userData[0].city }}, {{ userData[0].state }}</span><br/><br/>
@@ -29,6 +30,7 @@
 				<span class="section_text">{{ major.major }}</span><br/>
 			{% endfor %}
 		</div>
+		{% endif %}
 		<div style="border-right: 0px;" class="headerInfo">
 			<img src="../static/images/icons/linkedin.png"/>
 			<a target="blank" href="https://www.linkedin.com/profile/view?id=289654202&authType=NAME_SEARCH&authToken=IZBw&locale=en_US&trk=tyah&trkInfo=clickedVertical%3Amynetwork%2Cidx%3A1-1-1%2CtarId%3A1430975696920%2Ctas%3Acharlotte">
