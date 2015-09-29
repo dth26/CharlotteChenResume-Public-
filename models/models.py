@@ -4,7 +4,6 @@
 #from sqlalchemy import *
 #from sqlalchemy.dialects import mysqldef
 from __init__ import db
-from passlib.apps import custom_app_context as pwd_context
 from sqlalchemy import *
 from sqlalchemy.orm import relationship, backref
 from flask import request, url_for, render_template, redirect, session
