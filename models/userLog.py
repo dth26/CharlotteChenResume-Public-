@@ -1,7 +1,7 @@
 from app import app
 from flask import render_template, request, session, redirect, url_for
 from models import *
-from passlib.apps import custom_app_context as pwd_context
+
 
 
 basedir = "/home/pythonprogrammer/mysite/"
@@ -55,11 +55,6 @@ def createUser():
     return redirect(url_for('index'))
 
 
-
-# set the secret key.  keep this really secret:
-# create a session
-# any script that uses session must add this line of code
-app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 
 
